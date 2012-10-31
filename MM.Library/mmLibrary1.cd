@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MM.Library.MMDomainContext" Collapsed="true">
+    <Position X="10" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AADAAAAAAAgAAACAAAAAAgCCAEAAABQAACAAAAQAAAA=</HashCode>
+      <FileName>MMDomainContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MM.Library.RenterAccount">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAgAAAAAAAAgAAAAQAAABAAgAAAA=</HashCode>
+      <FileName>MMDomainContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MM.Library.Renter">
+    <Position X="3" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MMDomainContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MM.Library.Transaction" Collapsed="true">
+    <Position X="1" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAQACgAAAAAAEAAAAAEAAAAAA=</HashCode>
+      <FileName>MMDomainContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MM.Library.TransactionType">
+    <Position X="0.75" Y="4" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MMDomainContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MM.Library.Party">
+    <Position X="5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAEAAAAAAAAAAAAAQAAAAAAAABAQCAAABAAgAAAg=</HashCode>
+      <FileName>MMDomainContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MM.Library.PartyType" Collapsed="true">
+    <Position X="4.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>MMDomainContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MM.Library.Address" Collapsed="true">
+    <Position X="10.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YAACAAAAAAgAAUAAIAAAAAAAAAIAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>MMDomainContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MM.Library.PartyAddresses" Collapsed="true">
+    <Position X="7.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAIAAAAAAAAA=</HashCode>
+      <FileName>MMDomainContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MM.Library.AddressType" Collapsed="true">
+    <Position X="10" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MMDomainContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MM.Library.PartyContactInfoItems">
+    <Position X="7.25" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AEQAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>MMDomainContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MM.Library.ContactInfoItem" Collapsed="true">
+    <Position X="4.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>MMDomainContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MM.Library.ContactInfoType" Collapsed="true">
+    <Position X="7.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MMDomainContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
