@@ -13,13 +13,18 @@ namespace MM.Library.Entities
     {
         #region Business Methods
 
-        public static readonly PropertyInfo<int> IDProperty = RegisterProperty<int>(c => c.ID, RelationshipTypes.PrivateField);
-        // [NotUndoable, NonSerialized]
-        private int _id = IDProperty.DefaultValue;
-        public int ID
+        public static readonly PropertyInfo<int> contactInfoTypeIDProperty = RegisterProperty<int>(c => c.ContactInfoTypeID);
+        public int ContactInfoTypeID
         {
-            get { return GetProperty(IDProperty, _id); }
-            set { SetProperty(IDProperty, ref _id, value); }
+            get { return GetProperty(contactInfoTypeIDProperty); }
+            private set { LoadProperty(contactInfoTypeIDProperty, value); }
+        }
+
+        public static readonly PropertyInfo<string> TypeNameProperty = RegisterProperty<string>(c => c.TypeName);
+        public string TypeName
+        {
+            get { return GetProperty(TypeNameProperty); }
+            set { SetProperty(TypeNameProperty, value); }
         }
 
         #endregion

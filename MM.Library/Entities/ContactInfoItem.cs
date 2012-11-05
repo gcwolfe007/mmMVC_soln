@@ -17,30 +17,36 @@ namespace MM.Library.Entities
         /// <summary>
         /// The ID property
         /// </summary>
-        public static readonly PropertyInfo<int> IDProperty = RegisterProperty<int>(c => c.ID, RelationshipTypes.PrivateField);
-        // [NotUndoable, NonSerialized]
-        private int _id = IDProperty.DefaultValue;
-        public int ID
+        public static readonly PropertyInfo<int> ContactInfoItemIDProperty = RegisterProperty<int>(c => c.ContactInfoItemID);
+        public int ContactInfoItemID
         {
-            get { return GetProperty(IDProperty, _id); }
-            set { SetProperty(IDProperty, ref _id, value); }
+            get { return GetProperty(ContactInfoItemIDProperty); }
+            private set { LoadProperty(ContactInfoItemIDProperty, value); }
         }
 
         /// <summary>
-        /// The contact info value property
+        /// The contact info valve property
         /// </summary>
-        public static readonly PropertyInfo<string> ContactInfoValueProperty = RegisterProperty<string>(c => c.ContactInfoValue, RelationshipTypes.PrivateField);
-        // [NotUndoable, NonSerialized]
-        private string _contactInfoValue = ContactInfoValueProperty.DefaultValue;
-        public string ContactInfoValue
+        public static readonly PropertyInfo<string> ContactInfoValveProperty = RegisterProperty<string>(c => c.ContactInfoValve);
+        public string ContactInfoValve
         {
-            get { return GetProperty(ContactInfoValueProperty, _contactInfoValue); }
-            set { SetProperty(ContactInfoValueProperty, ref _contactInfoValue, value); }
+            get { return GetProperty(ContactInfoValveProperty); }
+            set { SetProperty(ContactInfoValveProperty, value); }
         }
 
-        
+
+        /// <summary>
+        /// The contact info type property
+        /// </summary>
         [Required]
-        public virtual ContactInfoType ContactItemType { get; set; }
+        public static readonly PropertyInfo<ContactInfoType> ContactInfoTypeProperty = RegisterProperty<ContactInfoType>(c => c.ContactInfoType);
+        public ContactInfoType ContactInfoType
+        {
+            get { return GetProperty(ContactInfoTypeProperty); }
+            set { SetProperty(ContactInfoTypeProperty, value); }
+        }
+
+
 
         #endregion
 

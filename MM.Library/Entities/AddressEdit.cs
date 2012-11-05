@@ -15,87 +15,64 @@ namespace MM.Library.Entities
     {
         #region Business Methods
 
-        public static readonly PropertyInfo<int> IDProperty = RegisterProperty<int>(c => c.ID, RelationshipTypes.PrivateField);
-        private int _id = IDProperty.DefaultValue;
-        public int ID
+        public static readonly PropertyInfo<int> AddressIDProperty = RegisterProperty<int>(c => c.AddressID);
+        public int AddressID
         {
-            get { return GetProperty(IDProperty, _id); }
-            private set { _id = value; }
+            get { return GetProperty(AddressIDProperty); }
+            private set { LoadProperty(AddressIDProperty, value); }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public static readonly PropertyInfo<string> LineOneProperty =
-            RegisterProperty<string>(c => c.LineOne, RelationshipTypes.PrivateField);
-        private string _lineone = LineOneProperty.DefaultValue;
+        public static readonly PropertyInfo<string> LineOneProperty = RegisterProperty<string>(c => c.LineOne);
         public string LineOne
         {
-            get { return GetProperty(LineOneProperty, _lineone); }
-            private set { _lineone = value; }
+            get { return GetProperty(LineOneProperty); }
+            set { SetProperty(LineOneProperty, value); }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        public static readonly PropertyInfo<string> LineTwoProperty =
-            RegisterProperty<string>(c => c.LineTwo, RelationshipTypes.PrivateField);
-        private string _linetwo = LineTwoProperty.DefaultValue;
+
+        public static readonly PropertyInfo<string> LineTwoProperty = RegisterProperty<string>(c => c.LineTwo);
         public string LineTwo
         {
-            get { return GetProperty(LineTwoProperty, _linetwo); }
-            private set { _linetwo = value; }
+            get { return GetProperty(LineTwoProperty); }
+            set { SetProperty(LineTwoProperty, value); }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        public static readonly PropertyInfo<string> CityProperty =
-            RegisterProperty<string>(c => c.City, RelationshipTypes.PrivateField);
-        private string _city = CityProperty.DefaultValue;
-        public string City
+
+        public static readonly PropertyInfo<string> CityTownProperty = RegisterProperty<string>(c => c.CityTown);
+        public string CityTown
         {
-            get { return GetProperty(CityProperty, _city); }
-            private set { _city = value; }
+            get { return GetProperty(CityTownProperty); }
+            set { SetProperty(CityTownProperty, value); }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        public static readonly PropertyInfo<string> StateProvinceProperty =
-            RegisterProperty<string>(c => c.StateProvince, RelationshipTypes.PrivateField);
-        private string _stateProvince = StateProvinceProperty.DefaultValue;
+
+        public static readonly PropertyInfo<string> StateProvinceProperty = RegisterProperty<string>(c => c.StateProvince);
         public string StateProvince
         {
-            get { return GetProperty(StateProvinceProperty, _stateProvince); }
-            private set { _stateProvince = value; }
+            get { return GetProperty(StateProvinceProperty); }
+            set { SetProperty(StateProvinceProperty, value); }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        public static readonly PropertyInfo<string> PostalCodeProperty =
-            RegisterProperty<string>(c => c.PostalCode, RelationshipTypes.PrivateField);
-        private string _postalCode = PostalCodeProperty.DefaultValue;
+
+
+        public static readonly PropertyInfo<string> PostalCodeProperty = RegisterProperty<string>(c => c.PostalCode);
         public string PostalCode
         {
-            get { return GetProperty(PostalCodeProperty, _postalCode); }
-            private set { _postalCode = value; }
+            get { return GetProperty(PostalCodeProperty); }
+            set { SetProperty(PostalCodeProperty, value); }
         }
 
-        public static readonly PropertyInfo<string> CountryProperty = RegisterProperty<string>(c => c.Country, RelationshipTypes.PrivateField);
-        // [NotUndoable, NonSerialized]
-        private string _country = CountryProperty.DefaultValue;
+        public static readonly PropertyInfo<string> CountryProperty = RegisterProperty<string>(c => c.Country);
         public string Country
         {
-            get { return GetProperty(CountryProperty, _country); }
-            set { SetProperty(CountryProperty, ref _country, value); }
+            get { return GetProperty(CountryProperty); }
+            set { SetProperty(CountryProperty, value); }
         }
 
-        public static readonly PropertyInfo<AddressType> AddressTypeProperty = RegisterProperty<AddressType>(c => c.AddressType, RelationshipTypes.PrivateField);
-        // [NotUndoable, NonSerialized]
-        private AddressType _addressType = AddressTypeProperty.DefaultValue;
+        [Required]
+        public static readonly PropertyInfo<AddressType> AddressTypeProperty = RegisterProperty<AddressType>(c => c.AddressType);
         public AddressType AddressType
         {
-            get { return GetProperty(AddressTypeProperty, _addressType); }
-            set { SetProperty(AddressTypeProperty, ref _addressType, value); }
+            get { return GetProperty(AddressTypeProperty); }
+            set { SetProperty(AddressTypeProperty, value); }
         }
+
 
         #endregion
 
@@ -171,7 +148,7 @@ namespace MM.Library.Entities
 
         protected override void DataPortal_DeleteSelf()
         {
-            DataPortal_Delete(new SingleCriteria<AddressEdit, int>(ReadProperty<int>(IDProperty)));
+            DataPortal_Delete(new SingleCriteria<AddressEdit, int>(ReadProperty<int>(AddressIDProperty)));
         }
 
         private void DataPortal_Delete(SingleCriteria<AddressEdit, int> criteria)

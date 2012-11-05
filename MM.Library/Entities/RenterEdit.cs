@@ -7,78 +7,46 @@ using Csla.Security;
 using Csla.Serialization;
 using System.ComponentModel;
 
-
 namespace MM.Library.Entities
 {
-    /// <summary>
-    /// 
-    /// </summary>
-   [Serializable()]
-    public class PartyEdit :BusinessBase<PartyEdit>
+   public class RenterEdit :BusinessBase<RenterEdit>
     {
-
         #region Business Methods
 
-        [Display(Name = "Party ID")]
-        [Required]
-        public static readonly PropertyInfo<int> PartyIDProperty = RegisterProperty<int>(c => c.PartyID);
-        public int PartyID
+        public static readonly PropertyInfo<int> RenterIDProperty = RegisterProperty<int>(c => c.RenterID);
+        public int RenterID
         {
-            get { return GetProperty(PartyIDProperty); }
-            private set { LoadProperty(PartyIDProperty, value); }
+            get { return GetProperty(RenterIDProperty); }
+            private set { LoadProperty(RenterIDProperty, value); }
         }
 
-        /// <summary>
-        /// Gets or sets the first name.
-        /// </summary>
-        /// <value>
-        /// The first name.
-        /// </value>
-        [Display(Name = "First Name")]
-        public static readonly PropertyInfo<string> FirstNameProperty = RegisterProperty<string>(c => c.FirstName);
-        public string FirstName
+        public static readonly PropertyInfo<PartyEdit> RenterProperty = RegisterProperty<PartyEdit>(c => c.Renter, RelationshipTypes.Child);
+        public PartyEdit Renter
         {
-            get { return GetProperty(FirstNameProperty); }
-            set { SetProperty(FirstNameProperty, value); }
+            get
+            {
+                if (!(FieldManager.FieldExists(RenterProperty)))
+                    LoadProperty(RenterProperty, DataPortal.CreateChild<PartyEdit>());
+                return GetProperty(RenterProperty);
+            }
+            private set { SetProperty(RenterProperty, value); }
         }
 
-        
-
-
-        /// <summary>
-        /// The last name property
-        /// </summary>
-        [Display(Name = "Last Name")]
-        [Required(ErrorMessage = "'LastName' is required")]
-        public static readonly PropertyInfo<string> LastNameProperty = RegisterProperty<string>(c => c.LastName);
-        public string LastName
-        {
-            get { return GetProperty(LastNameProperty); }
-            set { SetProperty(LastNameProperty, value); }
-        }
-        
-
-
-        /// <summary>
-        /// The middle name property
-        /// </summary>
-        [Display(Name = "Middle Name")]
-        public static readonly PropertyInfo<string> MiddleNameProperty = RegisterProperty<string>(c => c.MiddleName);
-        public string MiddleName
-        {
-            get { return GetProperty(MiddleNameProperty); }
-            set { SetProperty(MiddleNameProperty, value); }
-        }
-        /// <summary>
-        /// The create date property
-        /// </summary>
-        [Required]
         public static readonly PropertyInfo<SmartDate> CreateDateProperty = RegisterProperty<SmartDate>(c => c.CreateDate, null, new SmartDate());
         public string CreateDate
         {
             get { return GetPropertyConvert<SmartDate, string>(CreateDateProperty); }
             set { SetPropertyConvert<SmartDate, string>(CreateDateProperty, value); }
         }
+
+        public static readonly PropertyInfo<int> CreateUserIDProperty = RegisterProperty<int>(c => c.CreateUserID);
+        public int CreateUserID
+        {
+            get { return GetProperty(CreateUserIDProperty); }
+            set { SetProperty(CreateUserIDProperty, value); }
+        }
+
+        
 
         #endregion
 
@@ -102,16 +70,14 @@ namespace MM.Library.Entities
 
         #endregion
 
-        #region Data Access
-
 #if !SILVERLIGHT
 
-        private void Child_Create(int partyID)
+        private void Child_Create(int renterID)
         {
             using (BypassPropertyChecks)
             {
-                PartyID = partyID;
-                // Role = RoleList.DefaultRole();
+                RenterID = renterID;
+               // Role = RoleList.DefaultRole();
                 LoadProperty(CreateDateProperty, DateTime.Today);
                 using (var ctx = MM.DAL.DalFactory.GetDataStore())
                 {
@@ -140,11 +106,11 @@ namespace MM.Library.Entities
             {
                 //ResourceId = data.ResourceId;
                 //Role = data.RoleId;
-                //  LoadProperty(CreateDateProperty, data.Assigned);
+              //  LoadProperty(CreateDateProperty, data.Assigned);
                 //TimeStamp = data.LastChanged;
                 using (var ctx = MM.DAL.DalFactory.GetDataStore())
                 {
-                    //  var dal = ctx.GetProvider<ProjectTracker.Dal.IResourceDal>();
+                  //  var dal = ctx.GetProvider<ProjectTracker.Dal.IResourceDal>();
                     //var person = dal.Fetch(data.ResourceId);
                     //FirstName = person.FirstName;
                     //LastName = person.LastName;
@@ -160,7 +126,7 @@ namespace MM.Library.Entities
         {
             using (var ctx = MM.DAL.DalFactory.GetDataStore())
             {
-                //  var dal = ctx.GetProvider<ProjectTracker.Dal.IAssignmentDal>();
+              //  var dal = ctx.GetProvider<ProjectTracker.Dal.IAssignmentDal>();
                 using (BypassPropertyChecks)
                 {
                     //var item = new ProjectTracker.Dal.AssignmentDto
@@ -185,7 +151,7 @@ namespace MM.Library.Entities
         {
             using (var ctx = MM.DAL.DalFactory.GetDataStore())
             {
-                //   var dal = ctx.GetProvider<ProjectTracker.Dal.IAssignmentDal>();
+             //   var dal = ctx.GetProvider<ProjectTracker.Dal.IAssignmentDal>();
                 using (BypassPropertyChecks)
                 {
                     //var item = dal.Fetch(projectId, ResourceId);
@@ -202,21 +168,14 @@ namespace MM.Library.Entities
         {
             using (var ctx = MM.DAL.DalFactory.GetDataStore())
             {
-                // var dal = ctx.GetProvider<ProjectTracker.Dal.IAssignmentDal>();
+              // var dal = ctx.GetProvider<ProjectTracker.Dal.IAssignmentDal>();
                 using (BypassPropertyChecks)
                 {
-                    //   dal.Delete(account.Id, RenterID);
+                 //   dal.Delete(account.Id, RenterID);
                 }
             }
         }
 #endif
 
-
-     
-        #endregion
-
-
-
-   }
-
+    }
 }

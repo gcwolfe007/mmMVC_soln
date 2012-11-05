@@ -17,30 +17,20 @@ namespace MM.Library.Entities
         /// <summary>
         /// The ID property
         /// </summary>
-        public static readonly PropertyInfo<int> IDProperty = RegisterProperty<int>(c => c.ID, RelationshipTypes.PrivateField);
-        // [NotUndoable, NonSerialized]
-        private int _id = IDProperty.DefaultValue;
+        public static readonly PropertyInfo<int> IDProperty = RegisterProperty<int>(c => c.ID);
         public int ID
         {
-            get { return GetProperty(IDProperty, _id); }
-            set { SetProperty(IDProperty, ref _id, value); }
+            get { return GetProperty(IDProperty); }
+            set { SetProperty(IDProperty, value); }
         }
 
-        /// <summary>
-        /// The contact info value property
-        /// </summary>
-        public static readonly PropertyInfo<string> ContactInfoValueProperty = RegisterProperty<string>(c => c.PartyTypeValue, RelationshipTypes.PrivateField);
-        // [NotUndoable, NonSerialized]
-        private string _partyTypeValue = ContactInfoValueProperty.DefaultValue;
-        public string PartyTypeValue
+        public static readonly PropertyInfo<string> TypeNameProperty = RegisterProperty<string>(c => c.TypeName);
+        public string TypeName
         {
-            get { return GetProperty(ContactInfoValueProperty, _partyTypeValue); }
-            set { SetProperty(ContactInfoValueProperty, ref _partyTypeValue, value); }
+            get { return GetProperty(TypeNameProperty); }
+            set { SetProperty(TypeNameProperty, value); }
         }
 
-
-        [Required]
-        public virtual ContactInfoType ContactItemType { get; set; }
 
         #endregion
 

@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{9B1161C9-2743-4E23-ACBF-836ABDC402BA}</ProjectGuid>
+    <ProjectGuid>{B15C20E2-842C-492D-95EC-861EDEC0286D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MM.Library</RootNamespace>
-    <AssemblyName>MM.Library</AssemblyName>
+    <RootNamespace>MM.DAL</RootNamespace>
+    <AssemblyName>MM.DAL</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,19 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Csla">
-      <HintPath>..\packages\CSLA-Core.4.5.10\lib\net40\Csla.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.CompilerServices.AsyncTargetingPack.Net4">
-      <HintPath>..\packages\Microsoft.CompilerServices.AsyncTargetingPack.1.0.0\lib\net40\Microsoft.CompilerServices.AsyncTargetingPack.Net4.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,27 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\AddressEdit.cs" />
-    <Compile Include="Entities\AddressType.cs" />
-    <Compile Include="Entities\ContactInfoItem.cs" />
-    <Compile Include="Entities\ContactInfoType.cs" />
-    <Compile Include="Entities\PartyEdit.cs" />
-    <Compile Include="Entities\PartyType.cs" />
-    <Compile Include="Entities\RenterEdit.cs" />
+    <Compile Include="AssignmentDto.cs" />
+    <Compile Include="DalFactory.cs" />
+    <Compile Include="DataStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Entities\RenterAccountEdit.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="Entities.cd" />
-    <None Include="mmLibrary1.cd" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MM.DAL\MM.DAL.csproj">
-      <Project>{B15C20E2-842C-492D-95EC-861EDEC0286D}</Project>
-      <Name>MM.DAL</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

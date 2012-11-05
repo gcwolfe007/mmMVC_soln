@@ -14,14 +14,53 @@ namespace MM.Library.Entities
    {
        #region Business Methods
 
-       public static readonly PropertyInfo<int> IDProperty = RegisterProperty<int>(c => c.ID, RelationshipTypes.PrivateField);
-       // [NotUndoable, NonSerialized]
-       private int _id = IDProperty.DefaultValue;
-       public int ID
+       /// <summary>
+       /// The ID property
+       /// </summary>
+       public static readonly PropertyInfo<int> RenterAccountIDProperty = RegisterProperty<int>(c => c.RenterAccountID,"Account ID");
+       public int RenterAccountID
        {
-           get { return GetProperty(IDProperty, _id); }
-           set { SetProperty(IDProperty, ref _id, value); }
+           get { return GetProperty(RenterAccountIDProperty); }
+           private set { LoadProperty(RenterAccountIDProperty, value); }
        }
+
+       public static readonly PropertyInfo<RenterEdit> RenterProperty = RegisterProperty<RenterEdit>(c => c.Renter, RelationshipTypes.Child);
+       public RenterEdit Renter
+       {
+           get
+           {
+               if (!(FieldManager.FieldExists(RenterProperty)))
+                   LoadProperty(RenterProperty, DataPortal.CreateChild<RenterEdit>());
+               return GetProperty(RenterProperty);
+              
+           }
+           private set { SetProperty(RenterProperty, value); }
+       }
+
+       public static readonly PropertyInfo<SmartDate> CreateDateProperty = RegisterProperty<SmartDate>(c => c.CreateDate, null, new SmartDate());
+       public string CreateDate
+       {
+           get { return GetPropertyConvert<SmartDate, string>(CreateDateProperty); }
+           set { SetPropertyConvert<SmartDate, string>(CreateDateProperty, value); }
+       }
+
+       public static readonly PropertyInfo<int> CreateUserIDProperty = RegisterProperty<int>(c => c.CreateUserID);
+       public int CreateUserID
+       {
+           get { return GetProperty(CreateUserIDProperty); }
+           set { SetProperty(CreateUserIDProperty, value); }
+       }
+
+
+       public static readonly PropertyInfo<string> AccountNumberProperty = RegisterProperty<string>(c => c.AccountNumber);
+       public string AccountNumber
+       {
+           get { return GetProperty(AccountNumberProperty); }
+           set { SetProperty(AccountNumberProperty, value); }
+       }
+
+
+       
 
        #endregion
 
@@ -78,6 +117,14 @@ namespace MM.Library.Entities
 
        #region Data Access
 
+        [RunLocal]
+       protected override void DataPortal_Create()
+       {
+           base.DataPortal_Create();
+           
+       }
+
+       
        private void DataPortal_Fetch(SingleCriteria<RenterAccountEdit, int> criteria)
        {
            // TODO: load values into object
@@ -95,7 +142,7 @@ namespace MM.Library.Entities
 
        protected override void DataPortal_DeleteSelf()
        {
-           DataPortal_Delete(new SingleCriteria<RenterAccountEdit, int>(ReadProperty<int>(IDProperty)));
+           DataPortal_Delete(new SingleCriteria<RenterAccountEdit, int>(ReadProperty<int>(RenterAccountIDProperty)));
        }
 
        private void DataPortal_Delete(SingleCriteria<RenterAccountEdit, int> criteria)

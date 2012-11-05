@@ -7,29 +7,27 @@ using Csla.Security;
 using Csla.Serialization;
 using System.ComponentModel;
 
-namespace MM.Library
+namespace MM.Library.Entities
 {
     public class AddressType :BusinessBase<AddressType>
     {
         #region Business Methods
 
-        public static readonly PropertyInfo<int> IDProperty = RegisterProperty<int>(c => c.ID, RelationshipTypes.PrivateField);
-        private int _id = IDProperty.DefaultValue;
-        public int ID
+        public static readonly PropertyInfo<int> AddressTypeIDProperty = RegisterProperty<int>(c => c.AddressTypeID);
+        public int AddressTypeID
         {
-            get { return GetProperty(IDProperty, _id); }
-            private set { _id = value; }
+            get { return GetProperty(AddressTypeIDProperty); }
+            private set { LoadProperty(AddressTypeIDProperty, value); }
         }
 
         [Required]
-        public static readonly PropertyInfo<string> TypeNameProperty = RegisterProperty<string>(c => c.TypeName, RelationshipTypes.PrivateField);
-        // [NotUndoable, NonSerialized]
-        private string _typeName = TypeNameProperty.DefaultValue;
+        public static readonly PropertyInfo<string> TypeNameProperty = RegisterProperty<string>(c => c.TypeName);
         public string TypeName
         {
-            get { return GetProperty(TypeNameProperty, _typeName); }
-            set { SetProperty(TypeNameProperty, ref _typeName, value); }
+            get { return GetProperty(TypeNameProperty); }
+            set { SetProperty(TypeNameProperty, value); }
         }
+
 
         #endregion
 
