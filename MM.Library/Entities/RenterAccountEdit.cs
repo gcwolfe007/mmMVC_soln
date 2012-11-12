@@ -51,7 +51,6 @@ namespace MM.Library.Entities
            set { SetProperty(CreateUserIDProperty, value); }
        }
 
-
        public static readonly PropertyInfo<string> AccountNumberProperty = RegisterProperty<string>(c => c.AccountNumber);
        public string AccountNumber
        {
