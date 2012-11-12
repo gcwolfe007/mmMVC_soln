@@ -66,14 +66,33 @@ namespace MM.Library.Entities
         }
 
         [Required]
-        public static readonly PropertyInfo<AddressType> AddressTypeProperty = RegisterProperty<AddressType>(c => c.AddressType);
-        public AddressType AddressType
+        [Display(Name = "Address Type")]
+        public static readonly PropertyInfo<int> AddressTypeProperty = RegisterProperty<int>(c => c.Type);
+        public int Type
         {
             get { return GetProperty(AddressTypeProperty); }
-            set { SetProperty(AddressTypeProperty, value); }
+            set
+            {
+                SetProperty(AddressTypeProperty, value);
+                OnPropertyChanged("AddressType");
+            }
+        }
+
+        [Display(Name = "Type")]
+        public string AddressType
+        {
+            get
+            {
+                var result = "none";
+                if (Collections.AddressTypeList.GetList().ContainsKey(Type))
+                    result = Collections.AddressTypeList.GetList().GetItemByKey(Type).Value;
+                return result;
+            }
         }
 
 
+
+        
         #endregion
 
         #region Validation Rules

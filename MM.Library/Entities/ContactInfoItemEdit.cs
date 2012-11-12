@@ -10,7 +10,7 @@ using System.ComponentModel;
 namespace MM.Library.Entities
 {
     [Serializable()]
-    public class ContactInfoItem : BusinessBase<ContactInfoItem>
+    public class ContactInfoItemEdit : BusinessBase<ContactInfoItemEdit>
     {
         #region Business Methods
 
@@ -25,13 +25,13 @@ namespace MM.Library.Entities
         }
 
         /// <summary>
-        /// The contact info valve property
+        /// The contact info value property
         /// </summary>
-        public static readonly PropertyInfo<string> ContactInfoValveProperty = RegisterProperty<string>(c => c.ContactInfoValve);
-        public string ContactInfoValve
+        public static readonly PropertyInfo<string> ContactInfoValueProperty = RegisterProperty<string>(c => c.ContactInfoValue);
+        public string ContactInfoValue
         {
-            get { return GetProperty(ContactInfoValveProperty); }
-            set { SetProperty(ContactInfoValveProperty, value); }
+            get { return GetProperty(ContactInfoValueProperty); }
+            set { SetProperty(ContactInfoValueProperty, value); }
         }
 
 
@@ -39,14 +39,29 @@ namespace MM.Library.Entities
         /// The contact info type property
         /// </summary>
         [Required]
-        public static readonly PropertyInfo<ContactInfoType> ContactInfoTypeProperty = RegisterProperty<ContactInfoType>(c => c.ContactInfoType);
-        public ContactInfoType ContactInfoType
+        [Display(Name = "ContactInfo Type")]
+        public static readonly PropertyInfo<int> ContactInfoTypeProperty = RegisterProperty<int>(c => c.Type);
+        public int Type
         {
             get { return GetProperty(ContactInfoTypeProperty); }
-            set { SetProperty(ContactInfoTypeProperty, value); }
+            set
+            {
+                SetProperty(ContactInfoTypeProperty, value);
+                OnPropertyChanged("ContactInfoType");
+            }
         }
 
-
+        [Display(Name = "Type")]
+        public string ContactInfoType
+        {
+            get
+            {
+                var result = "none";
+                if (Collections.ContactInfoTypeList.GetList().ContainsKey(Type))
+                    result = Collections.ContactInfoTypeList.GetList().GetItemByKey(Type).Value;
+                return result;
+            }
+        }
 
         #endregion
 

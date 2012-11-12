@@ -1,0 +1,68 @@
+﻿@model MM.Library.Entities.RenterAccountEdit
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>RenterAccountEdit</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CreateDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CreateDate)
+            @Html.ValidationMessageFor(model => model.CreateDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CreateUserID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CreateUserID)
+            @Html.ValidationMessageFor(model => model.CreateUserID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AccountNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AccountNumber)
+            @Html.ValidationMessageFor(model => model.AccountNumber)
+        </div>
+        
+         <div class="editor-label">
+            @Html.LabelFor(model => model.Renter.RentingParty.FirstName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Renter.RentingParty.FirstName)
+            @Html.ValidationMessageFor(model => model.Renter.RentingParty.FirstName)
+        </div>
+        
+         <div class="editor-label">
+            @Html.LabelFor(model => model.Renter.RentingParty.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Renter.RentingParty.LastName)
+            @Html.ValidationMessageFor(model => model.Renter.RentingParty.LastName)
+
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

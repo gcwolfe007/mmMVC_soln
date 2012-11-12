@@ -24,13 +24,13 @@ namespace MM.Library.Entities
            private set { LoadProperty(RenterAccountIDProperty, value); }
        }
 
-       public static readonly PropertyInfo<RenterEdit> RenterProperty = RegisterProperty<RenterEdit>(c => c.Renter, RelationshipTypes.Child);
-       public RenterEdit Renter
+       public static readonly PropertyInfo<IRentingParty> RenterProperty = RegisterProperty<IRentingParty>(c => c.Renter, RelationshipTypes.Child);
+       public IRentingParty Renter
        {
            get
            {
                if (!(FieldManager.FieldExists(RenterProperty)))
-                   LoadProperty(RenterProperty, DataPortal.CreateChild<RenterEdit>());
+                   LoadProperty(RenterProperty, DataPortal.CreateChild<IRentingParty>());
                return GetProperty(RenterProperty);
               
            }
