@@ -6,8 +6,15 @@
       <Compartment Name="Fields" Collapsed="true" />
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
+    <NestedTypes>
+      <Class Name="MM.Library.Entities.RenterAccountEdit.RenterTypeCriteria" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Entities\RenterAccountEdit.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAgAgAAAAABgAIAFABAIAAAgxAAAEQABABAAgACAA=</HashCode>
+      <HashCode>AAAAgAgAAAAABgAIAFABAIAAAgxAAAkQABABAAgACAA=</HashCode>
       <FileName>Entities\RenterAccountEdit.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -17,7 +24,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AABAAEAAASAAAgAAAAAQAAAAEAEAgAAAAAABAAAAAAg=</HashCode>
+      <HashCode>AABAAEAAASAAAgAAAAAQABAAEAEAgAAAAAABAAAAAAg=</HashCode>
       <FileName>Entities\PersonEdit.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -28,7 +35,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AABAAAAAAQAAAgAAAAAAAAAAAAAAgAAAAAABAAAAAAA=</HashCode>
+      <HashCode>AABAQAAAASAAAgAAAAAAABAAAAAAgAAAAAABAAAAAAA=</HashCode>
       <FileName>Entities\CompanyEdit.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />

@@ -7,7 +7,8 @@ using MM.Library.Entities;
 
 namespace MM.Library.Collections
 {
-   public class AddressesEdit : BusinessListBase<AddressesEdit,AddressEdit>
+   [Serializable]
+    public class AddressesEdit : BusinessListBase<AddressesEdit,AddressEdit>
     {
 #if !SILVERLIGHT
        public AddressEdit Assign(int addressID)

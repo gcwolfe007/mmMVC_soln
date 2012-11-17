@@ -31,7 +31,10 @@ namespace mmMVC.Controllers
 
         public ActionResult Create()
         {
-            ViewData.Model = RenterAccountEdit.NewRenterAccountEdit();
+            ViewData.Model = RenterAccountEdit.NewRenterAccountEdit(0);
+
+           
+            
             return View();
         }
 

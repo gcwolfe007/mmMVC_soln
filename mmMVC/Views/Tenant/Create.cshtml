@@ -1,10 +1,16 @@
-﻿@model MM.Library.Entities.RenterAccountEdit
+﻿@using MM.Library.Entities
+@model MM.Library.Entities.RenterAccountEdit
 
 @{
     ViewBag.Title = "Create";
 }
 
 <h2>Create</h2>
+
+@{
+    var myRenter = (PersonEdit) Model.Renter;
+}
+
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
@@ -37,22 +43,23 @@
         </div>
         
          <div class="editor-label">
-            @Html.LabelFor(model => model.Renter.RentingParty.FirstName)
+            @Html.LabelFor(model => model.Renter )
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Renter.RentingParty.FirstName)
-            @Html.ValidationMessageFor(model => model.Renter.RentingParty.FirstName)
+            <input type="text" id="LastName" value=""/>
+            @Html.EditorFor(model => myRenter.LastName)
+            @Html.ValidationMessageFor(model => myRenter.LastName)
         </div>
-        
+    @*    
          <div class="editor-label">
-            @Html.LabelFor(model => model.Renter.RentingParty.LastName)
+            @Html.LabelFor(model => model.Renter.Addresses[0].LineOne)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Renter.RentingParty.LastName)
-            @Html.ValidationMessageFor(model => model.Renter.RentingParty.LastName)
+            @Html.EditorFor(model => model.Renter.Addresses[0].LineOne)
+            @Html.ValidationMessageFor(model => model.Renter.Addresses[0].LineOne)
 
         </div>
-
+*@
         <p>
             <input type="submit" value="Create" />
         </p>

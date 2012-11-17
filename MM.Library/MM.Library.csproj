@@ -61,8 +61,12 @@
     <Compile Include="Entities\ContactInfoItemEdit.cs" />
     <Compile Include="Entities\IRentingParty.cs" />
     <Compile Include="Entities\PersonEdit.cs" />
+    <Compile Include="Entities\RentingParty.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\RenterAccountEdit.cs" />
+    <Compile Include="RenterAccountCreator.cs" />
+    <Compile Include="RenterAccountGetter.cs" />
+    <Compile Include="RenterEditCreator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -15,6 +15,15 @@ namespace MM.Library.Entities
     {
         #region Business Methods
 
+        public enum TypeAddress
+        {
+            Mailing=0,
+            Home=1,
+            Work=2,
+            Shipping=3
+        }
+
+
         public static readonly PropertyInfo<int> AddressIDProperty = RegisterProperty<int>(c => c.AddressID);
         public int AddressID
         {

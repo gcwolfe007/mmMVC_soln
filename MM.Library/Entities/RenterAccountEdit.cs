@@ -9,10 +9,12 @@ using System.ComponentModel;
 
 namespace MM.Library.Entities
 {
-   [Serializable()]
+   [Serializable]
    public class RenterAccountEdit : BusinessBase<RenterAccountEdit>
    {
        #region Business Methods
+
+       private RenterEditCreator.RenterType _newRenterType;
 
        /// <summary>
        /// The ID property
@@ -30,14 +32,22 @@ namespace MM.Library.Entities
            get
            {
                if (!(FieldManager.FieldExists(RenterProperty)))
-                   LoadProperty(RenterProperty, DataPortal.CreateChild<IRentingParty>());
+               {
+                   var creator = RenterEditCreator.GetRenterEditCreator(_newRenterType);
+                   Renter = creator.Result;
+       //            LoadProperty(RenterProperty, DataPortal.CreateChild<IRentingParty>());
+               }
                return GetProperty(RenterProperty);
+
+       
               
            }
            private set { SetProperty(RenterProperty, value); }
        }
-
+    
        public static readonly PropertyInfo<SmartDate> CreateDateProperty = RegisterProperty<SmartDate>(c => c.CreateDate, null, new SmartDate());
+       [Display(Name = "Create Date")]
+       [Required(ErrorMessage = "'Create Date' is required")]
        public string CreateDate
        {
            get { return GetPropertyConvert<SmartDate, string>(CreateDateProperty); }
@@ -96,9 +106,9 @@ namespace MM.Library.Entities
        }
 
 #if !SILVERLIGHT
-       public static RenterAccountEdit NewRenterAccountEdit()
+       public static RenterAccountEdit NewRenterAccountEdit(int renterType)
        {
-           return DataPortal.Create<RenterAccountEdit>();
+           return DataPortal.Create<RenterAccountEdit>(new RenterTypeCriteria { RenterType = renterType });
        }
 
        public static RenterAccountEdit GetRenterAccountEdit(int id)
@@ -116,10 +126,24 @@ namespace MM.Library.Entities
 
        #region Data Access
 
-        [RunLocal]
-       protected override void DataPortal_Create()
+
+       [Serializable]
+       public class RenterTypeCriteria : CriteriaBase<RenterTypeCriteria>
        {
-           base.DataPortal_Create();
+           public static readonly PropertyInfo<int> RenterTypeProperty = RegisterProperty<int>(c => c.RenterType);
+           public int RenterType
+           {
+               get { return ReadProperty(RenterTypeProperty); }
+               set { LoadProperty(RenterTypeProperty, value); }
+           }
+       }
+
+        [RunLocal]
+       protected void DataPortal_Create(RenterTypeCriteria criteria)
+        {
+
+            _newRenterType = (RenterEditCreator.RenterType)criteria.RenterType;
+            base.DataPortal_Create();
            
        }
 
