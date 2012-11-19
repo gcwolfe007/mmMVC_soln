@@ -1,0 +1,67 @@
+﻿@model mmMVC.ViewModels.RenterViewModel
+
+@{
+    ViewBag.Title = "RenterNew";
+}
+
+<h2>RenterNew</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>PersonEdit</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ModelObject.CreateDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ModelObject.CreateDate)
+            @Html.ValidationMessageFor(model => model.ModelObject.CreateDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ModelObject.FirstName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ModelObject.FirstName)
+            @Html.ValidationMessageFor(model => model.ModelObject.FirstName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ModelObject.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ModelObject.LastName)
+            @Html.ValidationMessageFor(model => model.ModelObject.LastName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ModelObject.MiddleName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ModelObject.MiddleName)
+            @Html.ValidationMessageFor(model => model.ModelObject.MiddleName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LineOne)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LineOne)
+            @Html.ValidationMessageFor(model => model.LineOne)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

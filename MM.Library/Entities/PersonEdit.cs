@@ -25,8 +25,11 @@ namespace MM.Library.Entities
             private set { LoadProperty(RenterIDProperty, value); }
         }
 
+        
+        public static readonly PropertyInfo<SmartDate> CreateDateProperty =
+            RegisterProperty<SmartDate>(c => c.CreateDate, null, new SmartDate(DateTime.Now));
         [Display(Name = "Create Date")]
-        public static readonly PropertyInfo<SmartDate> CreateDateProperty = RegisterProperty<SmartDate>(c => c.CreateDate, null, new SmartDate());
+        [Required(ErrorMessage = "'A First Name' is required")]
         public string CreateDate
         {
             get { return GetPropertyConvert<SmartDate, string>(CreateDateProperty); }
@@ -53,9 +56,10 @@ namespace MM.Library.Entities
         /// </summary>
         /// <value>
         /// The first name.
-        /// </value>
-        [Display(Name = "First Name")]
+        /// </value>      
         public static readonly PropertyInfo<string> FirstNameProperty = RegisterProperty<string>(c => c.FirstName);
+        [Display(Name = "First Name")]
+        [Required(ErrorMessage = "'A First Name' is required")]
         public string FirstName
         {
             get { return GetProperty(FirstNameProperty); }
@@ -67,7 +71,7 @@ namespace MM.Library.Entities
         /// </summary>
         public static readonly PropertyInfo<string> LastNameProperty = RegisterProperty<string>(c => c.LastName);
         [Display(Name = "Last Name")]
-        [Required(ErrorMessage = "'LastName' is required")]
+        [Required(ErrorMessage = "'Last Name' is required")]
         public string LastName
         {
             get { return GetProperty(LastNameProperty); }
@@ -76,8 +80,7 @@ namespace MM.Library.Entities
 
         /// <summary>
         /// The middle name property
-        /// </summary>
-    
+        /// </summary>    
         public static readonly PropertyInfo<string> MiddleNameProperty = RegisterProperty<string>(c => c.MiddleName);
         [Display(Name = "Middle Name")]
         public string MiddleName
@@ -147,6 +150,9 @@ namespace MM.Library.Entities
         {
             var myAddress = AddressEdit.NewAddressEdit();
             myAddress.Type = (int)AddressEdit.TypeAddress.Mailing;
+            
+          
+
             Addresses.Add(myAddress);
 
         }

@@ -32,6 +32,7 @@ namespace MM.Library.Entities
         }
 
         public static readonly PropertyInfo<string> LineOneProperty = RegisterProperty<string>(c => c.LineOne);
+        [Display(Name="Address First Line")]
         public string LineOne
         {
             get { return GetProperty(LineOneProperty); }
@@ -139,7 +140,7 @@ namespace MM.Library.Entities
 #if !SILVERLIGHT
         public static AddressEdit NewAddressEdit()
         {
-            return DataPortal.Create<AddressEdit>();
+            return DataPortal.CreateChild<AddressEdit>();
         }
 
         public static AddressEdit GetAddressEdit(int id)
