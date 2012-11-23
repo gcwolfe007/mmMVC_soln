@@ -80,7 +80,7 @@ namespace MM.Library.Collections
             return _list;
         }
 
-        public static int DefaultRole()
+        public static int DefaultType()
         {
             var list = GetList(); // call factory to get list
             if (list.Count > 0)

@@ -40,13 +40,23 @@ namespace MM.Library.Entities
         }
 
         public static readonly PropertyInfo<string> LineTwoProperty = RegisterProperty<string>(c => c.LineTwo);
+       [Display(Name = "Address Second Line")]
         public string LineTwo
         {
             get { return GetProperty(LineTwoProperty); }
             set { SetProperty(LineTwoProperty, value); }
         }
+        
+        public static readonly PropertyInfo<string> LineThreeProperty = RegisterProperty<string>(c => c.LineThree);
+        [Display(Name = "Address Third Line")]
+        public string LineThree
+        {
+            get { return GetProperty(LineThreeProperty); }
+            set { SetProperty(LineThreeProperty, value); }
+        }
 
         public static readonly PropertyInfo<string> CityTownProperty = RegisterProperty<string>(c => c.CityTown);
+        [Display(Name = "City/Town")]
         public string CityTown
         {
             get { return GetProperty(CityTownProperty); }
@@ -54,6 +64,7 @@ namespace MM.Library.Entities
         }
 
         public static readonly PropertyInfo<string> StateProvinceProperty = RegisterProperty<string>(c => c.StateProvince);
+        [Display(Name = "State")]
         public string StateProvince
         {
             get { return GetProperty(StateProvinceProperty); }
@@ -62,6 +73,7 @@ namespace MM.Library.Entities
 
 
         public static readonly PropertyInfo<string> PostalCodeProperty = RegisterProperty<string>(c => c.PostalCode);
+        [Display(Name = "ZipCode")]
         public string PostalCode
         {
             get { return GetProperty(PostalCodeProperty); }
@@ -86,6 +98,15 @@ namespace MM.Library.Entities
                 SetProperty(AddressTypeProperty, value);
                 OnPropertyChanged("AddressType");
             }
+        }
+
+        public static readonly PropertyInfo<DateTime> AssignedProperty =
+        RegisterProperty<DateTime>(c => c.Assigned);
+        [Display(Name = "Date assigned")]
+        public DateTime Assigned
+        {
+            get { return GetProperty(AssignedProperty); }
+            private set { LoadProperty(AssignedProperty, value); }
         }
 
         [Display(Name = "Type")]
