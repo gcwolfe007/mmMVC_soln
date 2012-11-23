@@ -36,14 +36,14 @@ namespace MM.Library.Entities
             set { SetPropertyConvert<SmartDate, string>(CreateDateProperty, value); }
         }
 
-        public static readonly PropertyInfo<AddressesEdit> AddressesProperty =
-            RegisterProperty<AddressesEdit>(c => c.Addresses, RelationshipTypes.Child);
-        public AddressesEdit Addresses
+        public static readonly PropertyInfo<PartyAddresses> AddressesProperty =
+            RegisterProperty<PartyAddresses>(c => c.Addresses, RelationshipTypes.Child);
+        public PartyAddresses Addresses
         {
             get
             {
                 if (!(FieldManager.FieldExists(AddressesProperty)))
-                    LoadProperty(AddressesProperty, DataPortal.CreateChild<AddressesEdit>());
+                    LoadProperty(AddressesProperty, DataPortal.CreateChild<PartyAddresses>());
                 return GetProperty(AddressesProperty);
             }
             set { SetProperty(AddressesProperty, value); }
@@ -88,6 +88,8 @@ namespace MM.Library.Entities
             get { return GetProperty(MiddleNameProperty); }
             set { SetProperty(MiddleNameProperty, value); }
         }
+
+ 
 
 
         #endregion
@@ -146,14 +148,12 @@ namespace MM.Library.Entities
         #region Data Access
         
         [RunLocal]
-        private void DataPortal_Create()
+        protected override void DataPortal_Create()
         {
-            var myAddress = AddressEdit.NewAddressEdit();
-            myAddress.Type = (int)AddressEdit.TypeAddress.Mailing;
-            
-          
-
-            Addresses.Add(myAddress);
+            //var myAddress = AddressEdit.NewAddressEdit();
+            //myAddress.Type = (int)AddressEdit.TypeAddress.Mailing;  
+            //Addresses.Add(myAddress);
+            base.DataPortal_Create();
 
         }
 
@@ -184,6 +184,13 @@ namespace MM.Library.Entities
 
         #endregion
 
+
+        #region IRentingParty Members
+
+
+
+
+        #endregion
     }
 }
  

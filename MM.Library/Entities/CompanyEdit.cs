@@ -28,9 +28,9 @@ namespace MM.Library.Entities
             set { SetPropertyConvert<SmartDate, string>(CreateDateProperty, value); }
         }
 
-        public static readonly PropertyInfo<AddressesEdit> AddressesProperty =
-            RegisterProperty<AddressesEdit>(c => c.Addresses, RelationshipTypes.Child); 
-        public AddressesEdit Addresses
+        public static readonly PropertyInfo<PartyAddresses> AddressesProperty =
+            RegisterProperty<PartyAddresses>(c => c.Addresses, RelationshipTypes.Child);
+        public PartyAddresses Addresses
         {
             get
             {

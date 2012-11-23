@@ -14,7 +14,7 @@ namespace MM.Library.Entities
 
         string CreateDate { get; set; }
 
-        AddressesEdit Addresses { get; set; }
+        PartyAddresses Addresses { get; set; }
 
    }
 

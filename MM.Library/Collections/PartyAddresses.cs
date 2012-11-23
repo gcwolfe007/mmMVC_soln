@@ -8,7 +8,7 @@ using MM.Library.Entities;
 namespace MM.Library.Collections
 {
     [Serializable()]
-    public class PersonAddresses : BusinessListBase<PersonAddresses, PartyAddressEdit>
+    public class PartyAddresses : BusinessListBase<PartyAddresses, PartyAddressEdit>
     {
 #if SILVERLIGHT
     //TODO: add BeginAssign method
