@@ -15,6 +15,8 @@ namespace MM.DAL
         public int AddressType { get; set; }
         public DateTime Assigned { get; set; }
         public DateTime ModifyDate { get; set; }
+        public List<AddressDTO> AddressList { get; set; }
+
 
     }
 }

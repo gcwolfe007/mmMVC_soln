@@ -194,22 +194,37 @@ namespace MM.Library.Entities
                 AddressID = data.AddressID;
                 Type = data.AddressType;
                 LoadProperty(AssignedProperty, data.Assigned);
-                
-                using (var ctx = MM.DAL.DalFactory.GetManager())
-                {
-                    var dal = ctx.GetProvider<MM.DAL.IAddressDAL>();
-                    var address = dal.Fetch(data.AddressID);
-                    LineOne = address.LineOne;
-                    LineTwo = address.LineTwo;
-                    LineThree = address.LineThree;
-                    CityTown = address.CityTown;
-                    StateProvince = address.StateProvince;
-                    PostalCode = address.PostalCode;
-                    Country = address.Country;
-                }
+
+                var query = from address in data.AddressList
+                            where address.AddressID == AddressID
+                            select address;
+
+                var myaddress = query.FirstOrDefault();
+                LineOne = myaddress.LineOne;
+                LineTwo = myaddress.LineTwo;
+                LineThree = myaddress.LineThree;
+                CityTown = myaddress.CityTown;
+                StateProvince = myaddress.StateProvince;
+                PostalCode = myaddress.PostalCode;
+                Country = myaddress.Country;
+
+                //Rocky's method of calling the DAL again
+                //using (var ctx = MM.DAL.DalFactory.GetManager())
+                //{
+                //    var dal = ctx.GetProvider<MM.DAL.IAddressDAL>();
+                //    var address = dal.Fetch(data.AddressID);
+                //    LineOne = address.LineOne;
+                //    LineTwo = address.LineTwo;
+                //    LineThree = address.LineThree;
+                //    CityTown = address.CityTown;
+                //    StateProvince = address.StateProvince;
+                //    PostalCode = address.PostalCode;
+                //    Country = address.Country;
+                //}
             }
         }
-       
+        
+        
         private void Child_Insert(PersonEdit person)
         {
             Child_Insert(person.RenterID);

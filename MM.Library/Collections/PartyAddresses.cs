@@ -67,6 +67,16 @@ namespace MM.Library.Collections
                 RaiseListChangedEvents = rlce;
             }
         }
+
+        //private void Child_Fetch(List<MM.DAL.AddressDTO> data)
+        //{
+        //    var rlce = RaiseListChangedEvents;
+        //    RaiseListChangedEvents = false;
+        //    foreach (var item in data)
+        //        Add(DataPortal.FetchChild<PartyAddressEdit>(item));
+        //    RaiseListChangedEvents = rlce;
+         
+        //}
 #endif
 
     }

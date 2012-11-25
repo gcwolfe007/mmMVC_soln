@@ -89,7 +89,24 @@ namespace MM.Library.Entities
             set { SetProperty(MiddleNameProperty, value); }
         }
 
- 
+        public static readonly PropertyInfo<SmartDate> ModifyDateProperty = RegisterProperty<SmartDate>(c => c.ModifyDate, null, new SmartDate(DateTime.Now));
+        [Display(Name = "Last Modified Date")]
+        public string ModifyDate
+        {
+            get { return GetPropertyConvert<SmartDate, string>(ModifyDateProperty); }
+            set { SetPropertyConvert<SmartDate, string>(ModifyDateProperty, value); }
+        } 
+
+
+        protected override void OnChildChanged(Csla.Core.ChildChangedEventArgs e)
+        {
+            if (e.ChildObject is PartyAddresses)
+            {
+                BusinessRules.CheckRules(AddressesProperty);
+                OnPropertyChanged(AddressesProperty);
+            }
+            base.OnChildChanged(e);
+        }
 
 
         #endregion
@@ -113,7 +130,7 @@ namespace MM.Library.Entities
         }
 
         #endregion
-
+        
         #region Factory Methods
        
         public static void NewPersonEdit(EventHandler<DataPortalResult<PersonEdit>> callback)
@@ -141,6 +158,14 @@ namespace MM.Library.Entities
         {
             DataPortal.Delete<PersonEdit>(id);
         }
+
+        public static bool Exists(int id)
+        {
+            var cmd = new PartyExistsCommand(id);
+            cmd = DataPortal.Execute<PartyExistsCommand>(cmd);
+            return cmd.PartyExists;
+        }
+
 #endif
 
    #endregion
@@ -157,40 +182,92 @@ namespace MM.Library.Entities
 
         }
 
-        private void DataPortal_Fetch(SingleCriteria<PersonEdit, int> criteria)
+        private void DataPortal_Fetch(int id)
         {
-            // TODO: load values into object
+            using (var ctx = MM.DAL.DalFactory.GetManager())
+            {
+                var dal = ctx.GetProvider<MM.DAL.IRenterDAL>();
+                var data = dal.Fetch(id);
+                using (BypassPropertyChecks)
+                {
+                    RenterID = data.RenterID;
+                    FirstName = data.FirstName;
+                    MiddleName = data.MiddleName;
+                    LastName = data.LastName;
+                    CreateDate = data.CreateDate.ToShortDateString();
+                    ModifyDate = data.ModifyDate.ToShortDateString();
+                    Addresses = DataPortal.FetchChild<PartyAddresses>(id);                    
+               
+                }
+            }
         }
 
         protected override void DataPortal_Insert()
         {
-            // TODO: insert object's data
+            using (var ctx = MM.DAL.DalFactory.GetManager())
+            {
+                var dal = ctx.GetProvider<MM.DAL.IRenterDAL>();
+                using (BypassPropertyChecks)
+                {
+                    var item = new MM.DAL.RenterDTO
+                    {
+                         FirstName = this.FirstName,
+                         MiddleName = this.MiddleName,
+                         LastName = this.LastName,
+                         CreateDate = (DateTime)FieldManager.GetFieldData(CreateDateProperty).Value                   
+                    };
+                    dal.Insert(item);
+                    RenterID = item.RenterID;
+                    
+                }
+                FieldManager.UpdateChildren(this);
+            }
         }
 
         protected override void DataPortal_Update()
         {
-            // TODO: update object's data
+            using (var ctx = MM.DAL.DalFactory.GetManager())
+            {
+                var dal = ctx.GetProvider<MM.DAL.IRenterDAL>();
+                using (BypassPropertyChecks)
+                {
+                    var item = new MM.DAL.RenterDTO
+                    {
+                        RenterID = this.RenterID,
+                        FirstName = this.FirstName,
+                        MiddleName = this.MiddleName,
+                        LastName = this.LastName,
+                        CreateDate = (DateTime)FieldManager.GetFieldData(CreateDateProperty).Value,                  
+                    };
+                    dal.Update(item);
+                    FieldManager.GetFieldData(ModifyDateProperty).Value =  item.ModifyDate;
+                }
+                FieldManager.UpdateChildren(this);
+            }
         }
 
         protected override void DataPortal_DeleteSelf()
         {
-            DataPortal_Delete(new SingleCriteria<PersonEdit, int>(ReadProperty<int>(RenterIDProperty)));
+            using (BypassPropertyChecks)
+                DataPortal_Delete(this.RenterID);
         }
 
-        private void DataPortal_Delete(SingleCriteria<PersonEdit, int> criteria)
+        private void DataPortal_Delete(int id)
         {
-            // TODO: delete object's data
+            using (var ctx = MM.DAL.DalFactory.GetManager())
+            {
+                Addresses.Clear();
+                FieldManager.UpdateChildren(this);
+                var dal = ctx.GetProvider<MM.DAL.IRenterDAL>();
+                dal.Delete(RenterID);
+            }
         }
 
-        #endregion
-
-
-        #region IRentingParty Members
-
-
 
 
         #endregion
+
+
     }
 }
  
