@@ -22,7 +22,7 @@ public class DalFactory
               if (!string.IsNullOrEmpty(dalTypeName))
                   _dalType = Type.GetType(dalTypeName);
               else
-                  throw new NullReferenceException("DalManagerType");
+                  throw new NullReferenceException("The DalManagerType is Not Configured!");
               if (_dalType == null)
                   throw new ArgumentException(string.Format("Type {0} could not be found", dalTypeName));
           }

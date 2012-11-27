@@ -14,7 +14,7 @@ namespace MM.DAL
        public string LastName { get; set; }
        public DateTime ModifyDate { get; set; }
        public int ModifyUser { get; set; }
-       public List<AddressDTO> Addresses { get; set; }
+       public List<AddressAssignDTO> Addresses { get; set; }
        
     }
 }

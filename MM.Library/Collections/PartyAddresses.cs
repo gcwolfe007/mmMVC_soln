@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using Csla;
 using MM.Library.Entities;
+using AutoMapper;
+
 
 namespace MM.Library.Collections
 {
@@ -26,6 +28,31 @@ namespace MM.Library.Collections
                 throw new InvalidOperationException("Address already assigned to Renter");
             }
         }
+
+        internal List<MM.DAL.AddressAssignDTO> LoadAddresses()
+        {
+            var myList = new List<MM.DAL.AddressAssignDTO>();
+            foreach (var address in this)
+            {
+                var myDto = new MM.DAL.AddressAssignDTO
+                {                 
+                    AddressType = address.Type,
+                    AddressID = -1,
+                    LineOne = address.LineOne,
+                    LineTwo = address.LineTwo,
+                    LineThree = address.LineThree,
+                    CityTown = address.CityTown,
+                    StateProvince = address.StateProvince,
+                    PostalCode = address.PostalCode,
+                    Country = address.Country             
+                };       
+                myList.Add(myDto);
+            }
+            return myList;           
+        }
+
+
+
 #endif
 
         public void Remove(int addressID)

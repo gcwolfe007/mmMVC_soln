@@ -178,6 +178,9 @@ namespace MM.Library.Entities
             //var myAddress = AddressEdit.NewAddressEdit();
             //myAddress.Type = (int)AddressEdit.TypeAddress.Mailing;  
             //Addresses.Add(myAddress);
+
+            Addresses.Assign(-1);
+
             base.DataPortal_Create();
 
         }
@@ -209,13 +212,17 @@ namespace MM.Library.Entities
                 var dal = ctx.GetProvider<MM.DAL.IRenterDAL>();
                 using (BypassPropertyChecks)
                 {
+                  
+                     var mydate = FieldManager.GetFieldData(CreateDateProperty).Value;
                     var item = new MM.DAL.RenterDTO
                     {
                          FirstName = this.FirstName,
                          MiddleName = this.MiddleName,
                          LastName = this.LastName,
-                         CreateDate = (DateTime)FieldManager.GetFieldData(CreateDateProperty).Value                   
+                         CreateDate = (SmartDate)mydate ,   
+                         Addresses = Addresses.LoadAddresses()
                     };
+
                     dal.Insert(item);
                     RenterID = item.RenterID;
                     

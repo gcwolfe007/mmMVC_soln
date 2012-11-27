@@ -13,7 +13,7 @@ namespace mmMVC.ViewModels
 
     public class RenterViewModel : Csla.Web.Mvc.ViewModelBase<PersonEdit>
     {
-        private AddressesEdit _addressesEdit;
+        private PartyAddresses _addressesEdit;
         public RenterViewModel()
         {
             ModelObject = PersonEdit.NewPersonEdit();

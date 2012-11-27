@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MM.Library", "MM.Library\MM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MM.DAL", "MM.DAL\MM.DAL.csproj", "{B15C20E2-842C-492D-95EC-861EDEC0286D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MM.DAL.SQL", "MM.DAL.SQL\MM.DAL.SQL.csproj", "{FB5778FD-40FF-4264-942E-79233D0D45A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{B15C20E2-842C-492D-95EC-861EDEC0286D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B15C20E2-842C-492D-95EC-861EDEC0286D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B15C20E2-842C-492D-95EC-861EDEC0286D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB5778FD-40FF-4264-942E-79233D0D45A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB5778FD-40FF-4264-942E-79233D0D45A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB5778FD-40FF-4264-942E-79233D0D45A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB5778FD-40FF-4264-942E-79233D0D45A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

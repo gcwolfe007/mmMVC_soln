@@ -75,7 +75,16 @@ namespace MM.Library
         /// <param name="addressID">The address ID.</param>
         private void DataPortal_Fetch(int addressID)
         {
-            Result = DataPortal.CreateChild<PartyAddressEdit>(addressID);
+            if (addressID == -1)
+            {
+                Result = DataPortal.CreateChild<PartyAddressEdit>();
+            }
+            else
+            {
+                Result = DataPortal.CreateChild<PartyAddressEdit>(addressID);
+            }
+
+           
         }
 
         private void DataPortal_Fetch(AddressEditCriteria criteria)

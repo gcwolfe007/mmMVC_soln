@@ -177,6 +177,18 @@ namespace MM.Library.Entities
             base.Child_Create();
         }
 
+
+        private void Child_Create()
+        {
+            AddressID = -1;
+            Type = (int)TypeAddress.Mailing;            
+            //Type = Collections.AddressTypeList.DefaultType();
+            LoadProperty(AssignedProperty, DateTime.Now);
+                        
+            base.Child_Create();
+        }
+        
+        
         private void Child_Fetch(int partyID, int addressId)
         {
             using (var ctx = MM.DAL.DalFactory.GetManager())
