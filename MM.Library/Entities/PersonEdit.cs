@@ -219,7 +219,7 @@ namespace MM.Library.Entities
                          FirstName = this.FirstName,
                          MiddleName = this.MiddleName,
                          LastName = this.LastName,
-                         CreateDate = (SmartDate)mydate ,   
+                         CreateDate = (SmartDate)mydate ,                          
                          Addresses = Addresses.LoadAddresses()
                     };
 

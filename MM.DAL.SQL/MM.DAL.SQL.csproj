@@ -48,8 +48,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DalManager.cs" />
+    <Compile Include="DataMapper.cs" />
+    <Compile Include="MM_Stored_Procedure.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="RenterDAL.cs" />
+    <Compile Include="Results\spR_Insert_Renter_Result.cs" />
+    <Compile Include="spResult.cs" />
+    <Compile Include="StoredProcedures\SP_INSERT_RENTER.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -61,6 +71,13 @@
       <Name>MM.DAL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
