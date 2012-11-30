@@ -46,7 +46,7 @@ namespace MM.DAL.SQL
             } 
         }
 
-        public void Update(RenterDTO item)
+        public void Update(mmDTObase item)
         {
             throw new NotImplementedException();
         }
