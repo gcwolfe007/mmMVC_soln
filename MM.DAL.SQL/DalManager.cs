@@ -35,6 +35,23 @@ namespace MM.DAL.SQL
             ConnectionManager = new SqlConnection(cnStr);
         }
 
+        internal bool GetConnection(out SqlConnection myAccessConn)
+        {
+            myAccessConn = null;
+            try
+            {
+                var _cnstr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+                myAccessConn = new SqlConnection(_cnstr);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: Failed to create a database connection. \n{0}", ex.Message);
+                return true;
+            }
+            return false;
+        }
+
+
         #endregion
 
         #region IDisposable Members

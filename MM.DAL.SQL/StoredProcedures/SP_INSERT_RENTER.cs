@@ -35,10 +35,10 @@ namespace MM.DAL.SQL.StoredProcedures
          {
              var myData = new DalManager();
              var myResult = new spR_Insert_Renter_Result();
-             if (myData.ConnectionManager(out _myDB2Conn)) return null; 
+             if (myData.GetConnection(out _mySQLConn)) return null; 
              try
              {
-                 using (var myAccessCommand = new SqlCommand(_storedProcedureName, _myDB2Conn))
+                 using (var myAccessCommand = new SqlCommand(_storedProcedureName, _mySQLConn))
                  {
                      myAccessCommand.CommandType = System.Data.CommandType.StoredProcedure;
                      var myStuff = DataMapper.CreateCriteriaParameters(myDTO);
@@ -50,7 +50,7 @@ namespace MM.DAL.SQL.StoredProcedures
                             System.Diagnostics.Debug.WriteLine("Parameter: " + parm.ParameterName + " - Value: " + parm.Value);
                          }
                      }
-                     _myDB2Conn.Open();
+                     _mySQLConn.Open();
                      myResult.RowsReturned = myAccessCommand.ExecuteNonQuery();   
                     }
                 return myResult;
@@ -63,7 +63,7 @@ namespace MM.DAL.SQL.StoredProcedures
             }
             finally
             {
-                _myDB2Conn.Close();
+                _mySQLConn.Close();
             }       
          }
 
@@ -81,11 +81,8 @@ namespace MM.DAL.SQL.StoredProcedures
         
          public override void Dispose()
          {
-             if (_myDB2Conn.IsOpen)
-             {
-                 _myDB2Conn.Close();
-              }
-             _myDB2Conn.Dispose();
+     
+             _mySQLConn.Dispose();
             
          }
         

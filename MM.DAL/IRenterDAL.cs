@@ -10,8 +10,8 @@ namespace MM.DAL
         List<RenterDTO> Fetch();
         RenterDTO Fetch(int id);
         bool Exists(int id);
-        void Insert(RenterDTO item);
-        void Update(RenterDTO item);
+        void Insert(mmDTObase item);
+        void Update(mmDTObase item);
         void Delete(int id);
     }
 }
