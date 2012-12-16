@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using MM.DAL;
@@ -41,6 +42,20 @@ namespace MM.DAL.SQL.StoredProcedures
                  using (var myAccessCommand = new SqlCommand(_storedProcedureName, _mySQLConn))
                  {
                      myAccessCommand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                     //Get the Address parms for sure
+                     var concDTO = (RenterDTO)myDTO;
+                     var address = concDTO.Addresses[0];
+                     var myChildStuff = DataMapper.CreateCriteriaParameters(address);
+                     foreach (SqlParameter parm in myChildStuff)
+                     {
+                         if (parm.ParameterName.Length > 0)
+                         {
+                             myAccessCommand.Parameters.Add(parm);
+                             System.Diagnostics.Debug.WriteLine("Parameter: " + parm.ParameterName + " - Value: " + parm.Value);
+                         }
+                     }                     
+
                      var myStuff = DataMapper.CreateCriteriaParameters(myDTO);
                      foreach (SqlParameter parm in myStuff)
                      {
@@ -48,10 +63,24 @@ namespace MM.DAL.SQL.StoredProcedures
                          {
                             myAccessCommand.Parameters.Add(parm);
                             System.Diagnostics.Debug.WriteLine("Parameter: " + parm.ParameterName + " - Value: " + parm.Value);
-                         }
+                         }        
                      }
+
+                     var query = from SqlParameter myparm in myAccessCommand.Parameters
+                                 where myparm.ParameterName == "@RenterID"
+                                 select myparm;
+                     var outParm = query.FirstOrDefault();
+                     outParm.DbType = System.Data.DbType.Int32;
+                     outParm.Direction = System.Data.ParameterDirection.Output;
+                     outParm.ParameterName = "@AccountID";
+
+                     myAccessCommand.Parameters.AddWithValue("@UserID", 99);
+
+                     var myCount = myAccessCommand.Parameters.Count;
+
                      _mySQLConn.Open();
-                     myResult.RowsReturned = myAccessCommand.ExecuteNonQuery();   
+                      myResult.RowsReturned =  myAccessCommand.ExecuteNonQuery();
+                     concDTO.RenterID = (int)myAccessCommand.Parameters["@AccountID"].Value;
                     }
                 return myResult;
             }

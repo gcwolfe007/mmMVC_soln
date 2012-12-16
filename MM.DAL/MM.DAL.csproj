@@ -46,14 +46,24 @@
   <ItemGroup>
     <Compile Include="AddressAssignDTO.cs" />
     <Compile Include="AddressDTO.cs" />
+    <Compile Include="AddressTypeDTO.cs" />
+    <Compile Include="ContactInfoAssignDTO.cs" />
+    <Compile Include="ContactInfoAssignmentDTO.cs" />
+    <Compile Include="ContactInfoDTO.cs" />
+    <Compile Include="ContactInfoTypeDTO.cs" />
     <Compile Include="DalFactory.cs" />
     <Compile Include="DataStore.cs" />
     <Compile Include="IAddressDAL.cs" />
+    <Compile Include="IAddressTypeDAL.cs" />
+    <Compile Include="IContactInfo.cs" />
+    <Compile Include="IContactInfoAssignmentDAL.cs" />
+    <Compile Include="IContactInfoTypeDAL.cs" />
     <Compile Include="IDalManager.cs" />
     <Compile Include="IAddressAssignmentDAL.cs" />
     <Compile Include="IRenterDAL.cs" />
     <Compile Include="AddressAssignmentDTO.cs" />
     <Compile Include="mmDTObase.cs" />
+    <Compile Include="PartyTypesDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RenterDTO.cs" />
   </ItemGroup>

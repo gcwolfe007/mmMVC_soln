@@ -61,11 +61,128 @@ namespace MM.DAL.SQL.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to @AddressID.
+        /// </summary>
+        internal static string p_addressid {
+            get {
+                return ResourceManager.GetString("p_addressid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @AddressType.
+        /// </summary>
+        internal static string p_addresstype {
+            get {
+                return ResourceManager.GetString("p_addresstype", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @AddressTypeID.
+        /// </summary>
+        internal static string p_addresstypeid {
+            get {
+                return ResourceManager.GetString("p_addresstypeid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @CityTown.
+        /// </summary>
+        internal static string p_citytown {
+            get {
+                return ResourceManager.GetString("p_citytown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @Country.
+        /// </summary>
+        internal static string p_country {
+            get {
+                return ResourceManager.GetString("p_country", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @FirstName.
+        /// </summary>
+        internal static string p_firstname {
+            get {
+                return ResourceManager.GetString("p_firstname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @LastName.
+        /// </summary>
+        internal static string p_lastname {
+            get {
+                return ResourceManager.GetString("p_lastname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @LineOne.
+        /// </summary>
+        internal static string p_lineone {
+            get {
+                return ResourceManager.GetString("p_lineone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @LineThree.
+        /// </summary>
+        internal static string p_linethree {
+            get {
+                return ResourceManager.GetString("p_linethree", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @LineTwo.
+        /// </summary>
+        internal static string p_linetwo {
+            get {
+                return ResourceManager.GetString("p_linetwo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @MiddleName.
+        /// </summary>
+        internal static string p_middlename {
+            get {
+                return ResourceManager.GetString("p_middlename", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @PostalCode.
+        /// </summary>
+        internal static string p_postalcode {
+            get {
+                return ResourceManager.GetString("p_postalcode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to @RenterID.
         /// </summary>
         internal static string p_renterid {
             get {
                 return ResourceManager.GetString("p_renterid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @StateProvince.
+        /// </summary>
+        internal static string p_stateprovince {
+            get {
+                return ResourceManager.GetString("p_stateprovince", resourceCulture);
             }
         }
     }

@@ -166,6 +166,8 @@ namespace MM.DAL.SQL
                         return SqlDbType.DateTime;
                     case "double":
                         return SqlDbType.Char;
+                    case "List`1":
+                        return SqlDbType.Structured;
                     default:
                         return SqlDbType.Char;
                 }

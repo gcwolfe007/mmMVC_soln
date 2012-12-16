@@ -52,6 +52,35 @@
             @Html.ValidationMessageFor(model => model.LineOne)
         </div>
 
+         <div class="editor-label">
+            @Html.LabelFor(model => model.LineTwo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LineTwo)           
+        </div>
+
+          <div class="editor-label">
+            @Html.LabelFor(model => model.CityTown)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CityTown)           
+        </div>
+
+          <div class="editor-label">
+            @Html.LabelFor(model => model.StateProvince)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StateProvince)           
+        </div>
+
+          <div class="editor-label">
+            @Html.LabelFor(model => model.PostalCode)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PostalCode)           
+        </div>
+
+
         <p>
             <input type="submit" value="Create" />
         </p>

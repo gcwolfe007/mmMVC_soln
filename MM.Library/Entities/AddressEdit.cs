@@ -148,17 +148,6 @@ namespace MM.Library.Entities
 
         #region Factory Methods
 
-        public static void NewAddressEdit(EventHandler<DataPortalResult<AddressEdit>> callback)
-        {
-            DataPortal.BeginCreate<AddressEdit>(callback);
-        }
-
-        public static void GetAddressEdit(int id, EventHandler<DataPortalResult<AddressEdit>> callback)
-        {
-            DataPortal.BeginFetch<AddressEdit>(id, callback);
-        }
-
-#if !SILVERLIGHT
         public static AddressEdit NewAddressEdit()
         {
             return DataPortal.CreateChild<AddressEdit>();
@@ -173,9 +162,6 @@ namespace MM.Library.Entities
         {
             DataPortal.Delete<AddressEdit>(id);
         }
-
-#endif
-        
         
         #endregion
 

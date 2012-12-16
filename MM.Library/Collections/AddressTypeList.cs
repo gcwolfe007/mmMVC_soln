@@ -86,7 +86,7 @@ namespace MM.Library.Collections
             if (list.Count > 0)
                 return list.Items[0].Key;
             else
-                throw new NullReferenceException("No roles available; default role can not be returned");
+                throw new NullReferenceException("No Address Types available; default Address Type can not be returned");
         }
 
         private void DataPortal_Fetch()
@@ -94,13 +94,13 @@ namespace MM.Library.Collections
             var rlce = RaiseListChangedEvents;
             RaiseListChangedEvents = false;
             IsReadOnly = false;
-            //using (var ctx = ProjectTracker.Dal.DalFactory.GetManager())
-            //{
-            //    var dal = ctx.GetProvider<ProjectTracker.Dal.IRoleDal>();
-            //    foreach (var item in dal.Fetch())
-            //        Add(new NameValuePair(item.Id, item.Name));
-            //}
-            //IsReadOnly = true;
+            using (var ctx = MM.DAL.DalFactory.GetManager())
+            {
+                var dal = ctx.GetProvider<MM.DAL.IAddressTypeDAL>();
+                foreach (var item in dal.Fetch())
+                    Add(new NameValuePair(item.AddressTypeID, item.TypeDescription));
+            }
+            IsReadOnly = true;
             RaiseListChangedEvents = rlce;
         }
 #endif

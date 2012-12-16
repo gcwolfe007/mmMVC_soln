@@ -27,6 +27,13 @@ namespace mmMVC.Controllers
             return View();
         }
 
+        public ActionResult Renters()
+        {
+            ViewBag.Message = "This is Tenants Home";
+            return View();
+
+        }
+
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

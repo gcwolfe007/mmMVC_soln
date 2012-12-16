@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.2.2.0\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Csla">
       <HintPath>..\packages\CSLA-Core.4.5.10\lib\net40\Csla.dll</HintPath>
     </Reference>
@@ -47,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddressTypesDAL.cs" />
+    <Compile Include="ContactInfoTypeDAL.cs" />
     <Compile Include="DalManager.cs" />
     <Compile Include="DataMapper.cs" />
     <Compile Include="MM_Stored_Procedure.cs" />
@@ -57,8 +62,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="RenterDAL.cs" />
+    <Compile Include="Results\spR_Get_AddressTypes_List_Result.cs" />
+    <Compile Include="Results\spR_Get_ContactInfoTypes_List_Result.cs" />
+    <Compile Include="Results\spR_Get_RenterTypes_List_Result.cs" />
     <Compile Include="Results\spR_Insert_Renter_Result.cs" />
     <Compile Include="spResult.cs" />
+    <Compile Include="StoredProcedures\SP_Get_AddressTypes_List.cs" />
+    <Compile Include="StoredProcedures\SP_Get_ContactInfoType_List.cs" />
     <Compile Include="StoredProcedures\SP_INSERT_RENTER.cs" />
   </ItemGroup>
   <ItemGroup>

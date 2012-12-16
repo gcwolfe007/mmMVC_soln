@@ -16,6 +16,10 @@ namespace MM.Library.Entities
 
         PartyAddresses Addresses { get; set; }
 
+        PartyContactInfoItems ContactItems { get; set; }
+
+
+
    }
 
 }

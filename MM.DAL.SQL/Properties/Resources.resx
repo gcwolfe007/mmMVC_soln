@@ -117,8 +117,60 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="p_addressid" xml:space="preserve">
+    <value>@AddressID</value>
+    <comment>Sql Parameter Name</comment>
+  </data>
+  <data name="p_addresstype" xml:space="preserve">
+    <value>@AddressType</value>
+    <comment>Sql Parameter Name</comment>
+  </data>
+  <data name="p_addresstypeid" xml:space="preserve">
+    <value>@AddressTypeID</value>
+    <comment>Sql Parameter Name</comment>
+  </data>
+  <data name="p_citytown" xml:space="preserve">
+    <value>@CityTown</value>
+    <comment>Sql Parameter Name</comment>
+  </data>
+  <data name="p_country" xml:space="preserve">
+    <value>@Country</value>
+    <comment>Sql Parameter Name</comment>
+  </data>
+  <data name="p_firstname" xml:space="preserve">
+    <value>@FirstName</value>
+    <comment>Sql Parameter Name</comment>
+  </data>
+  <data name="p_lastname" xml:space="preserve">
+    <value>@LastName</value>
+    <comment>Sql Parameter Name</comment>
+  </data>
+  <data name="p_lineone" xml:space="preserve">
+    <value>@LineOne</value>
+    <comment>Sql Parameter Name</comment>
+  </data>
+  <data name="p_linethree" xml:space="preserve">
+    <value>@LineThree</value>
+    <comment>Sql Parameter Name</comment>
+  </data>
+  <data name="p_linetwo" xml:space="preserve">
+    <value>@LineTwo</value>
+    <comment>Sql Parameter Name</comment>
+  </data>
+  <data name="p_middlename" xml:space="preserve">
+    <value>@MiddleName</value>
+    <comment>Sql Parameter Name</comment>
+  </data>
+  <data name="p_postalcode" xml:space="preserve">
+    <value>@PostalCode</value>
+    <comment>Sql Parameter Name</comment>
+  </data>
   <data name="p_renterid" xml:space="preserve">
     <value>@RenterID</value>
+    <comment>Sql Parameter Name</comment>
+  </data>
+  <data name="p_stateprovince" xml:space="preserve">
+    <value>@StateProvince</value>
     <comment>Sql Parameter Name</comment>
   </data>
 </root>

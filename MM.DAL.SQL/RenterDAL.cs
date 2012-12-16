@@ -12,7 +12,7 @@ namespace MM.DAL.SQL
         #region IRenterDAL Members
 
 
-       const string sp_InsertRenter = "SP_INSERT_RENTER";
+       const string sp_InsertRenter = "Insert_Account_Assignment";
 
 
 
@@ -58,14 +58,6 @@ namespace MM.DAL.SQL
 
         #endregion
 
-        #region IRenterDAL Members
 
-
-        public void Insert(RenterDTO item)
-        {
-            throw new NotImplementedException();
-        }
-
-        #endregion
     }
 }

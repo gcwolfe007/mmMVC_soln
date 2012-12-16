@@ -14,6 +14,6 @@ namespace MM.DAL
        public string LastName { get; set; }
    
        public List<AddressAssignDTO> Addresses { get; set; }
-       
+       public List<ContactInfoAssignDTO> ContactInfoItems { get; set; }
     }
 }

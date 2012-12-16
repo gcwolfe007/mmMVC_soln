@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>spResult</Title>
+      <Author>Clifford</Author>
+      <Description>Provide spResult class</Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>spr</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>ContactInfoTypeDTO</ID>
+          <ToolTip>DTO type</ToolTip>
+          <Default>ContactInfoTypeDTO</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>_Get_ContactInfoItems</ID>
+          <ToolTip>_Get_ContactInfoItems</ToolTip>
+          <Default>_Get_ContactInfoItems</Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp" Kind="method body"><![CDATA[using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace MM.DAL.SQL.Results
+{
+    public class spR_Get_ContactInfoItems : spResult
+    {
+
+        protected List<$ContactInfoTypeDTO$> _resultSet;
+        
+        /// <summary>
+        /// Gets the error message.
+        /// </summary>
+        public override string ErrorMessage
+        {
+            get
+            {
+                return _errorMessage;
+            }
+            internal set
+            {
+                _errorMessage = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the rows returned.
+        /// </summary>
+        public override int RowsReturned
+        {
+            get
+            {
+                return _rowsReturned;
+            }
+            internal set
+            {
+                _rowsReturned = value;
+            }
+        }
+
+        public List<$ContactInfoTypeDTO$> ResultSet
+        {
+            get
+            {
+                return _resultSet;
+            }
+
+            set 
+            {
+                value = _resultSet;
+            }
+        
+        
+        }
+
+
+
+    }
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

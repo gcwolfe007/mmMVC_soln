@@ -9,7 +9,7 @@ using MM.Library.Collections;
 namespace MM.Library.Entities
 {
     [Serializable]
-    public class PersonEdit : BusinessBase<PersonEdit> , IRentingParty
+    public class PersonEdit : BusinessBase<PersonEdit>, IRentingParty
     {
 
         #region Business Methods
@@ -25,7 +25,7 @@ namespace MM.Library.Entities
             private set { LoadProperty(RenterIDProperty, value); }
         }
 
-        
+
         public static readonly PropertyInfo<SmartDate> CreateDateProperty =
             RegisterProperty<SmartDate>(c => c.CreateDate, null, new SmartDate(DateTime.Now));
         [Display(Name = "Create Date")]
@@ -45,6 +45,19 @@ namespace MM.Library.Entities
                 if (!(FieldManager.FieldExists(AddressesProperty)))
                     LoadProperty(AddressesProperty, DataPortal.CreateChild<PartyAddresses>());
                 return GetProperty(AddressesProperty);
+            }
+            set { SetProperty(AddressesProperty, value); }
+        }
+        
+        public static readonly PropertyInfo<PartyContactInfoItems> ContactItemsProperty =
+            RegisterProperty<PartyContactInfoItems>(c => c.ContactItems, RelationshipTypes.Child);
+        public PartyContactInfoItems ContactItems
+        {
+            get
+            {
+                if (!(FieldManager.FieldExists(ContactItemsProperty)))
+                    LoadProperty(ContactItemsProperty, DataPortal.CreateChild<PartyContactInfoItems>());
+                return GetProperty(ContactItemsProperty);
             }
             set { SetProperty(AddressesProperty, value); }
         }
@@ -95,7 +108,7 @@ namespace MM.Library.Entities
         {
             get { return GetPropertyConvert<SmartDate, string>(ModifyDateProperty); }
             set { SetPropertyConvert<SmartDate, string>(ModifyDateProperty, value); }
-        } 
+        }
 
 
         protected override void OnChildChanged(Csla.Core.ChildChangedEventArgs e)
@@ -130,9 +143,9 @@ namespace MM.Library.Entities
         }
 
         #endregion
-        
+
         #region Factory Methods
-       
+
         public static void NewPersonEdit(EventHandler<DataPortalResult<PersonEdit>> callback)
         {
             DataPortal.BeginCreate<PersonEdit>(callback);
@@ -168,10 +181,10 @@ namespace MM.Library.Entities
 
 #endif
 
-   #endregion
+        #endregion
 
         #region Data Access
-        
+
         [RunLocal]
         protected override void DataPortal_Create()
         {
@@ -199,8 +212,8 @@ namespace MM.Library.Entities
                     LastName = data.LastName;
                     CreateDate = data.CreateDate.ToShortDateString();
                     ModifyDate = data.ModifyDate.ToShortDateString();
-                    Addresses = DataPortal.FetchChild<PartyAddresses>(id);                    
-               
+                    Addresses = DataPortal.FetchChild<PartyAddresses>(id);
+
                 }
             }
         }
@@ -212,22 +225,23 @@ namespace MM.Library.Entities
                 var dal = ctx.GetProvider<MM.DAL.IRenterDAL>();
                 using (BypassPropertyChecks)
                 {
-                  
-                     var mydate = FieldManager.GetFieldData(CreateDateProperty).Value;
+
+                    var mydate = FieldManager.GetFieldData(CreateDateProperty).Value;
                     var item = new MM.DAL.RenterDTO
                     {
-                         FirstName = this.FirstName,
-                         MiddleName = this.MiddleName,
-                         LastName = this.LastName,
-                         CreateDate = (SmartDate)mydate ,                          
-                         Addresses = Addresses.LoadAddresses()
+                        FirstName = this.FirstName,
+                        MiddleName = this.MiddleName,
+                        LastName = this.LastName,
+                        CreateDate = (SmartDate)mydate,
+                        Addresses = Addresses.LoadAddresses(),
+                        ContactInfoItems = ContactItems.LoadContactInfoItems()
                     };
 
                     dal.Insert(item);
                     RenterID = item.RenterID;
-                    
+
                 }
-                FieldManager.UpdateChildren(this);
+                //FieldManager.UpdateChildren();
             }
         }
 
@@ -244,10 +258,10 @@ namespace MM.Library.Entities
                         FirstName = this.FirstName,
                         MiddleName = this.MiddleName,
                         LastName = this.LastName,
-                        CreateDate = (DateTime)FieldManager.GetFieldData(CreateDateProperty).Value,                  
+                        CreateDate = (DateTime)FieldManager.GetFieldData(CreateDateProperty).Value,
                     };
                     dal.Update(item);
-                    FieldManager.GetFieldData(ModifyDateProperty).Value =  item.ModifyDate;
+                    FieldManager.GetFieldData(ModifyDateProperty).Value = item.ModifyDate;
                 }
                 FieldManager.UpdateChildren(this);
             }
@@ -273,6 +287,8 @@ namespace MM.Library.Entities
 
 
         #endregion
+
+
 
 
     }

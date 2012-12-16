@@ -5,9 +5,10 @@ using System.Text;
 
 namespace MM.DAL
 {
-   public class AddressAssignDTO
+   public class AddressAssignDTO : mmDTObase
     {
-        public int AddressID { get; set; }
+       public AddressAssignDTO() :base() { }
+       public int AddressID { get; set; }
         public int AddressType { get; set; }
         public string LineOne { get; set; }
         public string LineTwo { get; set; }

@@ -80,7 +80,7 @@ namespace MM.Library.Collections
             return _list;
         }
 
-        public static int DefaultRole()
+        public static int DefaultType()
         {
             var list = GetList(); // call factory to get list
             if (list.Count > 0)
@@ -94,13 +94,13 @@ namespace MM.Library.Collections
             var rlce = RaiseListChangedEvents;
             RaiseListChangedEvents = false;
             IsReadOnly = false;
-            //using (var ctx = ProjectTracker.Dal.DalFactory.GetManager())
-            //{
-            //    var dal = ctx.GetProvider<ProjectTracker.Dal.IRoleDal>();
-            //    foreach (var item in dal.Fetch())
-            //        Add(new NameValuePair(item.Id, item.Name));
-            //}
-            //IsReadOnly = true;
+            using (var ctx = MM.DAL.DalFactory.GetManager())
+            {
+                var dal = ctx.GetProvider<MM.DAL.IContactInfoTypeDAL>();
+                foreach (var item in dal.Fetch())
+                    Add(new NameValuePair(item.ContactTypeID, item.TypeDescription));
+            }
+            IsReadOnly = true;
             RaiseListChangedEvents = rlce;
         }
 #endif

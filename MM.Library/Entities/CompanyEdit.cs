@@ -40,7 +40,18 @@ namespace MM.Library.Entities
             }
             set { SetProperty(AddressesProperty, value); }
         }
-
+        public static readonly PropertyInfo<PartyContactInfoItems> ContactItemsProperty =
+           RegisterProperty<PartyContactInfoItems>(c => c.ContactItems, RelationshipTypes.Child);
+        public PartyContactInfoItems ContactItems
+        {
+            get
+            {
+                if (!(FieldManager.FieldExists(ContactItemsProperty)))
+                    LoadProperty(ContactItemsProperty, DataPortal.CreateChild<PartyContactInfoItems>());
+                return GetProperty(ContactItemsProperty);
+            }
+            set { SetProperty(AddressesProperty, value); }
+        }
         #endregion
 
         [Required]
