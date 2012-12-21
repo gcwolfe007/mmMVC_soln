@@ -194,6 +194,10 @@ namespace MM.Library.Entities
 
             Addresses.Assign(-1);
 
+            var result = ContactInfoTypeList.GetList().GetItemByValue("Email").Key;
+
+            ContactItems.Assign(-1, result);
+
             base.DataPortal_Create();
 
         }

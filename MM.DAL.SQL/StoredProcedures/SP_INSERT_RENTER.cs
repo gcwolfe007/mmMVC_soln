@@ -46,15 +46,20 @@ namespace MM.DAL.SQL.StoredProcedures
                      //Get the Address parms for sure
                      var concDTO = (RenterDTO)myDTO;
                      var address = concDTO.Addresses[0];
-                     var myChildStuff = DataMapper.CreateCriteriaParameters(address);
-                     foreach (SqlParameter parm in myChildStuff)
+                     var myAddresStuff = DataMapper.CreateCriteriaParameters(address);
+                     foreach (SqlParameter parm in myAddresStuff)
                      {
                          if (parm.ParameterName.Length > 0)
                          {
                              myAccessCommand.Parameters.Add(parm);
                              System.Diagnostics.Debug.WriteLine("Parameter: " + parm.ParameterName + " - Value: " + parm.Value);
                          }
-                     }                     
+                     }
+                     var email = concDTO.ContactInfoItems[0];
+                     myAccessCommand.Parameters.AddWithValue("@Email", email.ContactInfoItem);
+                     myAccessCommand.Parameters.AddWithValue("@ContactType", email.ContactInfoTypeID);                       
+
+
 
                      var myStuff = DataMapper.CreateCriteriaParameters(myDTO);
                      foreach (SqlParameter parm in myStuff)

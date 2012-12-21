@@ -8,7 +8,7 @@ namespace MM.DAL.SQL.Results
     public class spR_Get_ContactInfoTypes_List_Result : spResult
     {
 
-        protected List<ContactInfoTypeDTO> _resultSet;
+        protected List<ContactInfoTypeDTO> _resultSet = new List<ContactInfoTypeDTO>();
         
         /// <summary>
         /// Gets the error message.
@@ -49,7 +49,7 @@ namespace MM.DAL.SQL.Results
 
             set 
             {
-                value = _resultSet;
+               _resultSet = value ;
             }
         
         

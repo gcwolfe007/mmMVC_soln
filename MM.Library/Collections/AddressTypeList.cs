@@ -96,7 +96,7 @@ namespace MM.Library.Collections
             IsReadOnly = false;
             using (var ctx = MM.DAL.DalFactory.GetManager())
             {
-                var dal = ctx.GetProvider<MM.DAL.IAddressTypeDAL>();
+                var dal = ctx.GetProvider<MM.DAL.IAddressTypesDAL>();
                 foreach (var item in dal.Fetch())
                     Add(new NameValuePair(item.AddressTypeID, item.TypeDescription));
             }

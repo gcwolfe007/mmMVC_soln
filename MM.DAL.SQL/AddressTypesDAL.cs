@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MM.DAL.SQL
 {
-    public class AddressTypesDAL : IAddressTypeDAL
+    public class AddressTypesDAL : IAddressTypesDAL
     {
         #region IAddressTypeDAL Members
 

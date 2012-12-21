@@ -19,6 +19,15 @@ namespace MM.Library.Collections
             return contactInfo;
         }
 
+        public PartyContactInfoEdit Assign(int contactInfoID, int typeContact)
+        {
+            var contactInfo = PartyContactInfoEditCreator.GetPartyContactInfoEditCreator(contactInfoID).Result;
+            contactInfo.ContactInfoType = typeContact;
+
+            this.Add(contactInfo);
+            return contactInfo;
+        }
+
         internal List<MM.DAL.ContactInfoAssignDTO> LoadContactInfoItems()
         {
             var myList = new List<MM.DAL.ContactInfoAssignDTO>();

@@ -8,7 +8,7 @@ namespace MM.DAL.SQL.Results
     public class spR_Get_AddressTypes_List_Result : spResult
     {
 
-        protected List<AddressTypeDTO> _resultSet;
+        protected List<AddressTypeDTO> _resultSet = new List<AddressTypeDTO>();
         
         /// <summary>
         /// Gets the error message.
@@ -49,7 +49,7 @@ namespace MM.DAL.SQL.Results
 
             set 
             {
-                value = _resultSet;
+               _resultSet = value;
             }
         
         

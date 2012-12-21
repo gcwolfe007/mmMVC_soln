@@ -54,7 +54,7 @@
     <Compile Include="DalFactory.cs" />
     <Compile Include="DataStore.cs" />
     <Compile Include="IAddressDAL.cs" />
-    <Compile Include="IAddressTypeDAL.cs" />
+    <Compile Include="IAddressTypesDAL.cs" />
     <Compile Include="IContactInfo.cs" />
     <Compile Include="IContactInfoAssignmentDAL.cs" />
     <Compile Include="IContactInfoTypeDAL.cs" />

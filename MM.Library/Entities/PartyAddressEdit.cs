@@ -179,8 +179,8 @@ namespace MM.Library.Entities
         private void Child_Create()
         {
             AddressID = -1;
-            Type = (int)TypeAddress.Mailing;            
-            //Type = Collections.AddressTypeList.DefaultType();
+         //   Type = (int)TypeAddress.Mailing;            
+            Type = Collections.AddressTypeList.DefaultType();
             LoadProperty(AssignedProperty, DateTime.Now);
                         
             base.Child_Create();

@@ -14,10 +14,13 @@ namespace mmMVC.ViewModels
     public class RenterViewModel : Csla.Web.Mvc.ViewModelBase<PersonEdit>
     {
         private PartyAddresses _addressesEdit;
+        private PartyContactInfoItems _contactInfoItems;
+
         public RenterViewModel()
         {
             ModelObject = PersonEdit.NewPersonEdit();
             _addressesEdit = ModelObject.Addresses;
+            _contactInfoItems = ModelObject.ContactItems;
         }
 
         [Display(Name = "Address First Line")]
@@ -89,6 +92,27 @@ namespace mmMVC.ViewModels
             }
 
         }
+
+        [Display(Name = "Email Adderss")]
+        [Required(ErrorMessage="Email Address is Required")]
+        [RegularExpression("^[a-z0-9_\\+-]+(\\.[a-z0-9_\\+-]+)*@[a-z0-9]+(\\.[a-z0-9]+)*\\.([a-z]{2,4})$", ErrorMessage = "Must provide valid Email address.")]
+        public string Email 
+        {
+            get
+            {
+                return _contactInfoItems[0].ContactInfoItem;
+            }
+            set 
+            {
+                _contactInfoItems[0].ContactInfoItem = value;          
+            }
+        }
+
+
+
+
+
+
 
 
     }

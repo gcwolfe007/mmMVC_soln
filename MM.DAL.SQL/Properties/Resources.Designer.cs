@@ -106,6 +106,15 @@ namespace MM.DAL.SQL.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to @Email.
+        /// </summary>
+        internal static string p_email {
+            get {
+                return ResourceManager.GetString("p_email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to @FirstName.
         /// </summary>
         internal static string p_firstname {
@@ -156,6 +165,15 @@ namespace MM.DAL.SQL.Properties {
         internal static string p_middlename {
             get {
                 return ResourceManager.GetString("p_middlename", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @Phone.
+        /// </summary>
+        internal static string p_phone {
+            get {
+                return ResourceManager.GetString("p_phone", resourceCulture);
             }
         }
         

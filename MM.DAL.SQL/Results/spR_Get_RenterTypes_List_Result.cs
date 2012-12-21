@@ -8,7 +8,7 @@ namespace MM.DAL.SQL.Results
     public class spR_Get_RenterTypes_List_Result : spResult
     {
 
-        protected List<PartyTypesDTO> _resultSet;
+        protected List<PartyTypesDTO> _resultSet = new List<PartyTypesDTO>();
         
         /// <summary>
         /// Gets the error message.
@@ -49,7 +49,7 @@ namespace MM.DAL.SQL.Results
 
             set 
             {
-                value = _resultSet;
+                 _resultSet = value;
             }
         
         

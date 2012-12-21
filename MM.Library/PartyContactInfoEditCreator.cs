@@ -36,7 +36,18 @@ namespace MM.Library.Entities
 
         private void DataPortal_Fetch(int contactInfoID)
         {
-            Result = DataPortal.CreateChild<PartyContactInfoEdit>(contactInfoID);
+
+            if (contactInfoID == -1)
+            {
+                Result = DataPortal.CreateChild<PartyContactInfoEdit>();
+            }
+            else
+            {
+                Result = DataPortal.CreateChild<PartyContactInfoEdit>(contactInfoID);
+            }          
+            
+            
+          //  Result = DataPortal.CreateChild<PartyContactInfoEdit>(contactInfoID);
         }
 
         private void DataPortal_Fetch(PartyContactInfoCriteria criteria)

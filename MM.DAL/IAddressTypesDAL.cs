@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MM.DAL
 {
-    public interface IAddressTypeDAL
+    public interface IAddressTypesDAL
     {
         List<AddressTypeDTO> Fetch();
         AddressTypeDTO Fetch(int id);

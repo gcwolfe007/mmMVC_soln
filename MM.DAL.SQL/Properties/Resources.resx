@@ -137,6 +137,10 @@
     <value>@Country</value>
     <comment>Sql Parameter Name</comment>
   </data>
+  <data name="p_email" xml:space="preserve">
+    <value>@Email</value>
+    <comment>Sql Parameter Name</comment>
+  </data>
   <data name="p_firstname" xml:space="preserve">
     <value>@FirstName</value>
     <comment>Sql Parameter Name</comment>
@@ -159,6 +163,10 @@
   </data>
   <data name="p_middlename" xml:space="preserve">
     <value>@MiddleName</value>
+    <comment>Sql Parameter Name</comment>
+  </data>
+  <data name="p_phone" xml:space="preserve">
+    <value>@Phone</value>
     <comment>Sql Parameter Name</comment>
   </data>
   <data name="p_postalcode" xml:space="preserve">
