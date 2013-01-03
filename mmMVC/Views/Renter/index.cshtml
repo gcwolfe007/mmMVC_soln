@@ -1,7 +1,79 @@
-﻿@model MM.Library.Entities.PersonEdit
+﻿@using Csla.Web.Mvc
+@model MM.Library.Collections.TenantInfoList
 
 @{
-    ViewBag.Title = "index";
+    ViewBag.Title = "Tenants List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>index</h2>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Tenants List</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="span2">
+                <h2>
+                    Heading</h2>
+            </div>
+            <div class="span10">
+                <p>
+                    @Html.ActionLink("Create New", "Create")
+                </p>
+                <table class="table table-bordered table-hover table-condensed">
+                    <tr>
+                        <th>
+                            Account Num
+                        </th>
+                        <th>
+                            Tenant Name
+                        </th>
+                        <th>
+                            Date Added
+                        </th>
+                        <th>
+                            City/Town
+                        </th>
+                        <th>
+                            Email Address
+                        </th>
+                        <th>
+                            Actions
+                        </th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AccountNumber)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FullName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DateAdded)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CityTown)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td>
+                                @Html.HasPermission(Csla.Rules.AuthorizationActions.EditObject, typeof(MM.Library.Entities.RenterAccountEdit), Html.ActionLink("Edit", "Edit", new { id = item.AccountID }), "Edit")
+                                |
+                                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

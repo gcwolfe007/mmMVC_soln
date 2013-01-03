@@ -61,14 +61,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="RenterDAL.cs" />
+    <Compile Include="RenterAccountDAL.cs" />
+    <Compile Include="Results\spR_Get_Account_Info_by_AccountID_Result.cs" />
     <Compile Include="Results\spR_Get_AddressTypes_List_Result.cs" />
     <Compile Include="Results\spR_Get_ContactInfoTypes_List_Result.cs" />
     <Compile Include="Results\spR_Get_RenterTypes_List_Result.cs" />
+    <Compile Include="Results\spR_Get_TenantsInfo_List_Result.cs" />
     <Compile Include="Results\spR_Insert_Renter_Result.cs" />
     <Compile Include="spResult.cs" />
+    <Compile Include="StoredProcedures\SP_Get_Account_Info_by_AccountID.cs" />
     <Compile Include="StoredProcedures\SP_Get_AddressTypes_List.cs" />
     <Compile Include="StoredProcedures\SP_Get_ContactInfoType_List.cs" />
+    <Compile Include="StoredProcedures\SP_Get_TenantInfo_List.cs" />
     <Compile Include="StoredProcedures\SP_INSERT_RENTER.cs" />
   </ItemGroup>
   <ItemGroup>

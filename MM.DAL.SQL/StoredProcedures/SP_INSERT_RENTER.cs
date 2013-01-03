@@ -44,8 +44,8 @@ namespace MM.DAL.SQL.StoredProcedures
                      myAccessCommand.CommandType = System.Data.CommandType.StoredProcedure;
 
                      //Get the Address parms for sure
-                     var concDTO = (RenterDTO)myDTO;
-                     var address = concDTO.Addresses[0];
+                     var concDTO = (RenterAccountDTO)myDTO;
+                     var address = concDTO.Renter.Addresses[0];
                      var myAddresStuff = DataMapper.CreateCriteriaParameters(address);
                      foreach (SqlParameter parm in myAddresStuff)
                      {
@@ -55,7 +55,7 @@ namespace MM.DAL.SQL.StoredProcedures
                              System.Diagnostics.Debug.WriteLine("Parameter: " + parm.ParameterName + " - Value: " + parm.Value);
                          }
                      }
-                     var email = concDTO.ContactInfoItems[0];
+                     var email = concDTO.Renter.ContactInfoItems[0];
                      myAccessCommand.Parameters.AddWithValue("@Email", email.ContactInfoItem);
                      myAccessCommand.Parameters.AddWithValue("@ContactType", email.ContactInfoTypeID);                       
 
@@ -85,7 +85,7 @@ namespace MM.DAL.SQL.StoredProcedures
 
                      _mySQLConn.Open();
                       myResult.RowsReturned =  myAccessCommand.ExecuteNonQuery();
-                     concDTO.RenterID = (int)myAccessCommand.Parameters["@AccountID"].Value;
+                     concDTO.Renter.RenterID = (int)myAccessCommand.Parameters["@AccountID"].Value;
                     }
                 return myResult;
             }

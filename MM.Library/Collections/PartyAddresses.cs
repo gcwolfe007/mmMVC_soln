@@ -80,7 +80,9 @@ namespace MM.Library.Collections
             return item > 0;
         }
 
-#if !SILVERLIGHT
+        #region Data Access
+
+
         private void Child_Fetch(int renterID)
         {
             using (var ctx = MM.DAL.DalFactory.GetManager())
@@ -95,6 +97,24 @@ namespace MM.Library.Collections
             }
         }
 
+        private void Child_Fetch(MM.DAL.RenterDTO mydto)
+        {
+            var data = mydto;
+            var rlce = RaiseListChangedEvents;
+            RaiseListChangedEvents = false;
+            foreach (var item in data.Addresses)
+                Add(DataPortal.FetchChild<PartyAddressEdit>(item));
+            RaiseListChangedEvents = rlce;       
+              
+        }
+
+
+
+
+
+
+
+        #endregion
         //private void Child_Fetch(List<MM.DAL.AddressDTO> data)
         //{
         //    var rlce = RaiseListChangedEvents;
@@ -104,7 +124,7 @@ namespace MM.Library.Collections
         //    RaiseListChangedEvents = rlce;
          
         //}
-#endif
+
 
     }
 }

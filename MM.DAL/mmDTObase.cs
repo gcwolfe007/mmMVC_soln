@@ -7,10 +7,11 @@ namespace MM.DAL
 {
     public class mmDTObase
     {
-        public DateTime CreateDate { get; set; }
-        public int CreateUser { get; set; }
-        public DateTime ModifyDate { get; set; }
-        public int ModifyUser { get; set; }
-
+        public virtual DateTime CreateDate { get; set; }
+        public virtual int CreateUserID { get; set; }
+        public virtual DateTime ModifyDate { get; set; }
+        public virtual int ModifyUser { get; set; }
+        public virtual DateTime StartActiveDate { get; set; }
+        public virtual DateTime EndActiveDate { get; set; }
     }
 }

@@ -219,6 +219,25 @@ namespace MM.Library.Entities
                 Country = myaddress.Country;
             }
         }
+
+        private void Child_Fetch(MM.DAL.AddressAssignDTO data)
+        {
+            using (BypassPropertyChecks)
+            {
+                AddressID = data.AddressID;
+                Type = data.AddressType;
+                LoadProperty(AssignedProperty, data.CreateDate);
+
+               
+                LineOne = data.LineOne;
+                LineTwo = data.LineTwo;
+                LineThree = data.LineThree;
+                CityTown = data.CityTown;
+                StateProvince = data.StateProvince;
+                PostalCode = data.PostalCode;
+                Country = data.Country;
+            }
+        }
              
         private void Child_Insert(PersonEdit person)
         {

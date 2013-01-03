@@ -16,22 +16,50 @@ namespace mmMVC.Models
         {
         }
 
-        public DbSet<UserProfile> UserProfiles { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 
-    [Table("UserProfile")]
-    public class UserProfile
+    [Table("Users")]
+    public class User
     {
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
-        public string UserName { get; set; }
+        [Required]
+        public string Email { get; set; }       
+        [Required]
+        [MaxLength(50)]
+        public string FirstName { get; set; }
+        [MaxLength(50)]
+        public string MiddleName { get; set; }
+        [Required]
+        [MaxLength(50)]
+        public string LastName { get; set; }
+        [MaxLength(50)]
+        public string FriendlyName { get; set; }        
+        public DateTime CreateDate { get; set; }
+        public DateTime StartActiveDate { get; set; }
+        public DateTime EndActiveDate { get; set; }
+        public int CreateUserID { get; set; }
+        public DateTime ModifyDate { get; set; }
+        public int ModifyUserID { get; set; }
+      
     }
+
+    [Table("UserDetails")]
+    public class UserDetail
+    {
+        [Key]
+        public int UserDetailID { get; set; }
+        public int UserID { get; set; }
+    }
+
+
 
     public class RegisterExternalLoginModel
     {
         [Required]
-        [Display(Name = "User name")]
+        [Display(Name = "User Name")]
         public string UserName { get; set; }
 
         public string ExternalLoginData { get; set; }
@@ -73,9 +101,10 @@ namespace mmMVC.Models
 
     public class RegisterModel
     {
+
         [Required]
-        [Display(Name = "User name")]
-        public string UserName { get; set; }
+        [Display(Name = "Email Address")]
+        public string Email { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
@@ -87,6 +116,23 @@ namespace mmMVC.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "First name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last name")]
+        public string LastName { get; set; }
+
+        [Display(Name = "Middle name")]
+        public string MiddleName { get; set; }
+
+
+        [Display(Name = "Friendly name")]
+        public string FriendlyName { get; set; }
+
+
     }
 
     public class ExternalLogin

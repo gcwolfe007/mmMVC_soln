@@ -34,7 +34,7 @@ namespace MM.Library
         {
           using (var ctx = MM.DAL.DalFactory.GetManager())
           {
-            var dal = ctx.GetProvider<MM.DAL.IRenterDAL>();
+            var dal = ctx.GetProvider<MM.DAL.IRenterAccountDAL>();
             PartyExists = dal.Exists(RenterID);
           }
         }

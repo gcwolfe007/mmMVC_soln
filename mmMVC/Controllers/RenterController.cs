@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MM.Library.Entities;
+using MM.Library.Collections;
 using mmMVC.ViewModels;
 
 namespace mmMVC.Controllers
@@ -12,9 +13,13 @@ namespace mmMVC.Controllers
     {
         //
         // GET: /Renter/
-
+       
         public ActionResult Index()
         {
+
+            var user = Csla.ApplicationContext.User;
+            
+            ViewData.Model = TenantInfoList.GetProjectList();
             return View();
         }
 
@@ -43,6 +48,10 @@ namespace mmMVC.Controllers
         [HttpPost]
         public ActionResult Create(RenterViewModel personedit)
         {
+
+           
+            
+            
             if (personedit.Save(ModelState, false))
             {
                 return RedirectToAction("Index", new { id = personedit.ModelObject.RenterID });
@@ -73,6 +82,7 @@ namespace mmMVC.Controllers
 
         public ActionResult Edit(int id)
         {
+            ViewData.Model = RenterAccountEdit.GetRenterAccountEdit(id);
             return View();
         }
 

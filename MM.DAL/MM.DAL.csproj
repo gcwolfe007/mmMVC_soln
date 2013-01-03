@@ -60,12 +60,16 @@
     <Compile Include="IContactInfoTypeDAL.cs" />
     <Compile Include="IDalManager.cs" />
     <Compile Include="IAddressAssignmentDAL.cs" />
-    <Compile Include="IRenterDAL.cs" />
+    <Compile Include="IRenterAccountDAL.cs" />
     <Compile Include="AddressAssignmentDTO.cs" />
+    <Compile Include="IRenterDAL.cs" />
+    <Compile Include="ITenantInfoDAL.cs" />
     <Compile Include="mmDTObase.cs" />
     <Compile Include="PartyTypesDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RenterAccountDTO.cs" />
     <Compile Include="RenterDTO.cs" />
+    <Compile Include="TenantInfoDTO.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

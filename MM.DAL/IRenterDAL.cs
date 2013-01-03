@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MM.DAL
 {
-    public interface IRenterDAL
+   public interface IRenterDAL
     {
         List<RenterDTO> Fetch();
         RenterDTO Fetch(int id);

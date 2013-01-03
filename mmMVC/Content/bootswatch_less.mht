@@ -1,0 +1,265 @@
+From: "Saved by Windows Internet Explorer 9"
+Subject: 
+Date: Tue, 11 Dec 2012 13:37:29 -0500
+MIME-Version: 1.0
+Content-Type: text/html;
+	charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://bootswatch.com/spacelab/bootswatch.less
+X-MimeOLE: Produced By Microsoft MimeOLE V6.1.7601.17609
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>><HTML><HEAD>
+<META content=3D"text/html; charset=3Dwindows-1252" =
+http-equiv=3D"Content-Type">
+<META name=3D"GENERATOR" content=3D"MSHTML 9.00.8112.16455"></HEAD>
+<BODY><PRE>// Spacelab 2.2.2=0A=
+// Bootswatch=0A=
+// -----------------------------------------------------=0A=
+=0A=
+=0A=
+// TYPOGRAPHY=0A=
+// -----------------------------------------------------=0A=
+=0A=
+@import =
+url('http://fonts.googleapis.com/css?family=3DOpen+Sans:400italic,700ital=
+ic,400,700');=0A=
+=0A=
+// SCAFFOLDING=0A=
+// -----------------------------------------------------=0A=
+=0A=
+// NAVBAR=0A=
+// -----------------------------------------------------=0A=
+=0A=
+.navbar {=0A=
+=0A=
+	.navbar-inner {=0A=
+		.box-shadow(0 1px 0 rgba(255,255,255,0.4)~", "0 1px 0 rgba(0,0,0,0.8));=0A=
+	}=0A=
+=0A=
+	.brand {=0A=
+=0A=
+		text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);=0A=
+=0A=
+		&amp;:hover {=0A=
+			color: @navbarLinkColorHover;=0A=
+		}=0A=
+	}=0A=
+=0A=
+	.nav &gt; li &gt; a {=0A=
+		padding: 11px 10px 8px;=0A=
+		text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);=0A=
+	}=0A=
+=0A=
+	.navbar-text {=0A=
+		padding: 11px 10px 8px;=0A=
+		line-height: inherit;=0A=
+	}=0A=
+=0A=
+	.navbar-search .search-query,=0A=
+	.navbar-search .search-query:hover {=0A=
+		margin-bottom: 0;=0A=
+		line-height: normal;=0A=
+		color: @grayLight;=0A=
+		.placeholder(@grayLight);=0A=
+		.box-shadow(inset 0 1px 2px rgba(0, 0, 0, 0.5));=0A=
+=0A=
+	    &amp;:focus,=0A=
+	    &amp;.focused {=0A=
+			.box-shadow(inset 0 1px 2px rgba(0, 0, 0, 0.5));=0A=
+			color: @textColor;=0A=
+		}=0A=
+	}=0A=
+=0A=
+	&amp;-inverse {=0A=
+=0A=
+		.brand {=0A=
+			text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3);=0A=
+=0A=
+			&amp;:hover {=0A=
+				color: @white;=0A=
+			}=0A=
+		}=0A=
+=0A=
+		.nav &gt; li &gt; a {=0A=
+			text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3);=0A=
+		}=0A=
+=0A=
+		.nav li.dropdown.open &gt; .dropdown-toggle .caret,=0A=
+		.nav li.dropdown:hover &gt; .dropdown-toggle .caret,=0A=
+		.nav li.dropdown.open:hover &gt; .dropdown-toggle .caret {=0A=
+			border-top-color: @white;=0A=
+		}=0A=
+=0A=
+		.navbar-search .search-query,=0A=
+		.navbar-search .search-query:hover {=0A=
+=0A=
+			color: @white;=0A=
+=0A=
+			.placeholder(@grayLighter);=0A=
+		}=0A=
+	}=0A=
+}=0A=
+=0A=
+@media (max-width: @navbarCollapseWidth) {=0A=
+=0A=
+	.navbar .nav-collapse {=0A=
+=0A=
+		.nav li &gt; a:hover {=0A=
+			background-color: @linkColor;=0A=
+			color: @white;=0A=
+			text-shadow: none;=0A=
+		}=0A=
+=0A=
+		.navbar-search {=0A=
+			border-top: none;=0A=
+			border-bottom: none;=0A=
+		}=0A=
+	}=0A=
+=0A=
+	.navbar-inverse .nav-collapse {=0A=
+=0A=
+		.nav li &gt; a {=0A=
+			color: @grayLighter;=0A=
+=0A=
+			&amp;:hover {=0A=
+				background-color: @linkColor !important;=0A=
+			}=0A=
+		}=0A=
+=0A=
+		.nav-header {=0A=
+			color: @grayLighter;=0A=
+		}=0A=
+	}=0A=
+}=0A=
+=0A=
+div.subnav {=0A=
+=0A=
+	.nav &gt; li &gt; a {=0A=
+=0A=
+		color: @navbarLinkColor;=0A=
+=0A=
+		&amp;:hover {=0A=
+			color: @navbarLinkColorHover;=0A=
+		}=0A=
+	}=0A=
+=0A=
+	.nav &gt; li.active &gt; a {=0A=
+=0A=
+		color: @textColor;=0A=
+=0A=
+		&amp;:hover {=0A=
+			color: @textColor;=0A=
+		}=0A=
+	}=0A=
+=0A=
+	.nav &gt; li.dropdown &gt; .dropdown-toggle {=0A=
+		background-color: transparent;=0A=
+	}=0A=
+=0A=
+	.nav &gt; li.dropdown.open &gt; .dropdown-toggle {=0A=
+=0A=
+		border-left: 1px solid whiteSmoke;=0A=
+		border-right: 1px solid #E5E5E5;=0A=
+		color: @textColor;=0A=
+=0A=
+		&amp;:hover {=0A=
+			color: @linkColor;=0A=
+		}=0A=
+	}=0A=
+}=0A=
+=0A=
+// NAV=0A=
+// -----------------------------------------------------=0A=
+=0A=
+.nav &gt; li.dropdown &gt; .dropdown-toggle,=0A=
+.nav &gt; li.dropdown.active &gt; .dropdown-toggle,=0A=
+.nav &gt; li.dropdown.open &gt; .dropdown-toggle,=0A=
+.nav &gt; li.dropdown.open.active &gt; .dropdown-toggle  {=0A=
+=0A=
+	.caret {=0A=
+		border-top: 4px solid @textColor;=0A=
+		border-top-color: @textColor;=0A=
+		opacity: 1;=0A=
+	}=0A=
+=0A=
+	&amp;:hover .caret {=0A=
+		border-top: 4px solid @linkColorHover;=0A=
+		border-top-color: @linkColorHover;=0A=
+	}=0A=
+}=0A=
+=0A=
+// BUTTONS=0A=
+// -----------------------------------------------------=0A=
+=0A=
+// TABLES=0A=
+// -----------------------------------------------------=0A=
+=0A=
+// FORMS=0A=
+// -----------------------------------------------------=0A=
+=0A=
+.control-group.warning {=0A=
+	.formFieldState(#E29235, #E29235, @warningBackground);=0A=
+}=0A=
+=0A=
+.control-group.error {=0A=
+	.formFieldState(#C00, #C00, @errorBackground);=0A=
+}=0A=
+=0A=
+.control-group.success {=0A=
+	.formFieldState(#2BA949, #2BA949, @successBackground);=0A=
+}=0A=
+=0A=
+// DROPDOWNS=0A=
+// -----------------------------------------------------=0A=
+=0A=
+// ALERTS, LABELS, BADGES=0A=
+// -----------------------------------------------------=0A=
+=0A=
+.alert {=0A=
+	=0A=
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);=0A=
+=0A=
+	h1, h2, h3, h4, h5, h6 {=0A=
+		color: @white;=0A=
+		font-weight: bold;=0A=
+		text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);=0A=
+	}=0A=
+}=0A=
+=0A=
+.label, .badge {=0A=
+=0A=
+	padding-top: 4px;=0A=
+=0A=
+	&amp;-important {=0A=
+		background-color: @red;=0A=
+	}=0A=
+=0A=
+	&amp;-warning {=0A=
+		background-color: @orange;=0A=
+	}=0A=
+=0A=
+	&amp;-success {=0A=
+		background-color: @green;=0A=
+	}=0A=
+=0A=
+	&amp;-info {=0A=
+		background-color: @blue;=0A=
+	}=0A=
+}=0A=
+=0A=
+// MISC=0A=
+// -----------------------------------------------------=0A=
+=0A=
+.well {=0A=
+	.box-shadow(inset 1px 1px 0 rgba(0,0,0,.1));=0A=
+}=0A=
+=0A=
+.hero-unit {=0A=
+	.box-shadow(inset 1px 1px 0 rgba(0,0,0,.1));=0A=
+	border: 1px solid rgba(0,0,0,.1);=0A=
+}=0A=
+=0A=
+// MEDIA QUERIES=0A=
+// -----------------------------------------------------=0A=
+</PRE></BODY></HTML>

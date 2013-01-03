@@ -26,8 +26,8 @@ namespace MM.Library.Entities
            private set { LoadProperty(RenterAccountIDProperty, value); }
        }
 
-       public static readonly PropertyInfo<IRentingParty> RenterProperty = RegisterProperty<IRentingParty>(c => c.Renter, RelationshipTypes.Child);
-       public IRentingParty Renter
+       public static readonly PropertyInfo<PersonEdit> RenterProperty = RegisterProperty<PersonEdit>(c => c.Renter, RelationshipTypes.Child);
+       public PersonEdit Renter
        {
            get
            {
@@ -68,7 +68,21 @@ namespace MM.Library.Entities
            set { SetProperty(AccountNumberProperty, value); }
        }
 
-
+       public static readonly PropertyInfo<int> ModifyUserProperty = RegisterProperty<int>(c => c.ModifyUser);
+       public int ModifyUser
+       {
+           get { return GetProperty(ModifyUserProperty); }
+           set { SetProperty(ModifyUserProperty, value); }
+       }
+       
+       
+       public static readonly PropertyInfo<SmartDate> ModifyDateProperty = RegisterProperty<SmartDate>(c => c.ModifyDate, null, new SmartDate(DateTime.Now));
+       [Display(Name = "Last Modified Date")]
+       public string ModifyDate
+       {
+           get { return GetPropertyConvert<SmartDate, string>(ModifyDateProperty); }
+           set { SetPropertyConvert<SmartDate, string>(ModifyDateProperty, value); }
+       }
        
 
        #endregion
@@ -148,9 +162,23 @@ namespace MM.Library.Entities
        }
 
        
-       private void DataPortal_Fetch(SingleCriteria<RenterAccountEdit, int> criteria)
+       private void DataPortal_Fetch(int accountID)
        {
-           // TODO: load values into object
+           using (var ctx = MM.DAL.DalFactory.GetManager())
+           {
+               var dal = ctx.GetProvider<MM.DAL.IRenterAccountDAL>();
+               var data = dal.Fetch(accountID);
+               using (BypassPropertyChecks)
+               {
+                   RenterAccountID = data.AccountID;
+                   AccountNumber = data.AccountNumber;
+                   LoadProperty(CreateDateProperty, data.CreateDate);
+                   LoadProperty(ModifyDateProperty, data.ModifyDate);
+                  
+                   CreateUserID = data.CreateUserID;
+                   Renter = DataPortal.FetchChild<PersonEdit>(data.Renter);
+               }
+           }
        }
 
        protected override void DataPortal_Insert()
@@ -160,7 +188,24 @@ namespace MM.Library.Entities
 
        protected override void DataPortal_Update()
        {
-           // TODO: update object's data
+           using (var ctx = MM.DAL.DalFactory.GetManager())
+           {
+               var dal = ctx.GetProvider<MM.DAL.IRenterAccountDAL>();
+               using (BypassPropertyChecks)
+               {
+                   var item = new MM.DAL.RenterAccountDTO
+                   {
+                       AccountID = this.RenterAccountID,
+                       AccountNumber = this.AccountNumber,
+                      
+                      
+                       CreateDate = (DateTime)FieldManager.GetFieldData(CreateDateProperty).Value,
+                   };
+                   dal.Update(item);
+                   FieldManager.GetFieldData(ModifyDateProperty).Value = item.ModifyDate;
+               }
+               FieldManager.UpdateChildren(this);
+           }
        }
 
        protected override void DataPortal_DeleteSelf()

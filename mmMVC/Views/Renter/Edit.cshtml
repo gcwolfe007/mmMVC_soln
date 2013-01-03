@@ -1,0 +1,60 @@
+﻿@model MM.Library.Entities.RenterAccountEdit
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>RenterAccountEdit</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CreateDate)
+        </div>
+        <div class="editor-label">
+            @Html.DisplayFor(model => model.CreateDate)
+            
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CreateUserID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CreateUserID)
+            @Html.ValidationMessageFor(model => model.CreateUserID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AccountNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AccountNumber)
+            @Html.ValidationMessageFor(model => model.AccountNumber)
+        </div>
+
+                <div class="editor-label">
+            @Html.LabelFor(model => model.AccountNumber)
+        </div>
+        <div >
+            @Html.EditorFor(model => model.AccountNumber)
+            @Html.ValidationMessageFor(model => model.AccountNumber)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -17,8 +17,8 @@ namespace MM.Library
             Company=1
         }
         
-        public static PropertyInfo<IRentingParty> ResultProperty = RegisterProperty<IRentingParty>(c => c.Result);
-        public IRentingParty Result
+        public static PropertyInfo<PersonEdit> ResultProperty = RegisterProperty<PersonEdit>(c => c.Result);
+        public PersonEdit Result
         {
             get { return GetProperty(ResultProperty); }
             private set { LoadProperty(ResultProperty, value); }
@@ -55,21 +55,15 @@ namespace MM.Library
         /// <param name="typeParty">The address ID.</param>
         private void DataPortal_Fetch(RenterType typeParty)
         {
-            if (typeParty == RenterType.Person)
-            {
+   
                 Result = DataPortal.CreateChild<PersonEdit>();
-            }
-            else
-            {
-                Result = DataPortal.CreateChild<CompanyEdit>();
-            }
-            
+          
             
         }
 
         private void DataPortal_Fetch(RenterEditCriteria criteria)
         {
-            Result = DataPortal.FetchChild<IRentingParty>(criteria.PartyID);
+            Result = DataPortal.FetchChild<PersonEdit>(criteria.PartyID);
         }
 #endif
 

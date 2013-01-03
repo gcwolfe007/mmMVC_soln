@@ -9,7 +9,7 @@ using MM.Library.Collections;
 namespace MM.Library.Entities
 {
     [Serializable]
-    public class PersonEdit : BusinessBase<PersonEdit>, IRentingParty
+    public class PersonEdit : BusinessBase<PersonEdit>
     {
 
         #region Business Methods
@@ -146,17 +146,6 @@ namespace MM.Library.Entities
 
         #region Factory Methods
 
-        public static void NewPersonEdit(EventHandler<DataPortalResult<PersonEdit>> callback)
-        {
-            DataPortal.BeginCreate<PersonEdit>(callback);
-        }
-
-        public static void GetPersonEdit(int id, EventHandler<DataPortalResult<PersonEdit>> callback)
-        {
-            DataPortal.BeginFetch<PersonEdit>(id, callback);
-        }
-
-#if !SILVERLIGHT
         public static PersonEdit NewPersonEdit()
         {
             return DataPortal.Create<PersonEdit>();
@@ -165,6 +154,11 @@ namespace MM.Library.Entities
         public static PersonEdit GetPersonEdit(int id)
         {
             return DataPortal.Fetch<PersonEdit>(id);
+        }
+
+        public static PersonEdit GetPersonEdit(MM.DAL.RenterDTO myDTO)
+        {
+           return DataPortal.Fetch<PersonEdit>(myDTO);
         }
 
         public static void DeletePersonEdit(int id)
@@ -178,8 +172,6 @@ namespace MM.Library.Entities
             cmd = DataPortal.Execute<PartyExistsCommand>(cmd);
             return cmd.PartyExists;
         }
-
-#endif
 
         #endregion
 
@@ -200,6 +192,42 @@ namespace MM.Library.Entities
 
             base.DataPortal_Create();
 
+        }
+
+        private void Child_Fetch(MM.DAL.RenterDTO mydto)
+        {
+            var data = mydto;
+            using (BypassPropertyChecks)
+            {
+                RenterID = data.RenterID;
+                FirstName = data.FirstName;
+                MiddleName = data.MiddleName;
+                LastName = data.LastName;
+                CreateDate = data.CreateDate.ToShortDateString();
+                ModifyDate = data.ModifyDate.ToShortDateString();
+                Addresses = DataPortal.FetchChild<PartyAddresses>(mydto);
+
+            }
+        
+        
+        }
+        private void DataPortal_Fetch(MM.DAL.RenterDTO mydto)
+        {
+
+            var data = mydto;
+            using (BypassPropertyChecks)
+            {
+                RenterID = data.RenterID;
+                FirstName = data.FirstName;
+                MiddleName = data.MiddleName;
+                LastName = data.LastName;
+                CreateDate = data.CreateDate.ToShortDateString();
+                ModifyDate = data.ModifyDate.ToShortDateString();
+                Addresses = DataPortal.FetchChild<PartyAddresses>(mydto);
+
+            }
+        
+        
         }
 
         private void DataPortal_Fetch(int id)
@@ -226,7 +254,7 @@ namespace MM.Library.Entities
         {
             using (var ctx = MM.DAL.DalFactory.GetManager())
             {
-                var dal = ctx.GetProvider<MM.DAL.IRenterDAL>();
+                var dal = ctx.GetProvider<MM.DAL.IRenterAccountDAL>();
                 using (BypassPropertyChecks)
                 {
 
@@ -253,7 +281,7 @@ namespace MM.Library.Entities
         {
             using (var ctx = MM.DAL.DalFactory.GetManager())
             {
-                var dal = ctx.GetProvider<MM.DAL.IRenterDAL>();
+                var dal = ctx.GetProvider<MM.DAL.IRenterAccountDAL>();
                 using (BypassPropertyChecks)
                 {
                     var item = new MM.DAL.RenterDTO
@@ -283,7 +311,7 @@ namespace MM.Library.Entities
             {
                 Addresses.Clear();
                 FieldManager.UpdateChildren(this);
-                var dal = ctx.GetProvider<MM.DAL.IRenterDAL>();
+                var dal = ctx.GetProvider<MM.DAL.IRenterAccountDAL>();
                 dal.Delete(RenterID);
             }
         }

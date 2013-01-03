@@ -61,6 +61,7 @@
     <Compile Include="Collections\PartyAddresses.cs" />
     <Compile Include="Collections\PartyContactInfoItems.cs" />
     <Compile Include="Collections\RenterTypeList.cs" />
+    <Compile Include="Collections\TenantInfoList.cs" />
     <Compile Include="Entities\CompanyEdit.cs" />
     <Compile Include="Entities\AddressEdit.cs" />
     <Compile Include="Entities\ContactInfoEdit.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Entities\PartyAddressEdit.cs" />
     <Compile Include="Entities\PartyContactInfoEdit.cs" />
     <Compile Include="Entities\PersonEdit.cs" />
+    <Compile Include="Entities\TenantInfo.cs" />
     <Compile Include="PartyAddressEditCreator.cs" />
     <Compile Include="PartyAddressUpdater.cs" />
     <Compile Include="PartyContactInfoEditCreator.cs" />

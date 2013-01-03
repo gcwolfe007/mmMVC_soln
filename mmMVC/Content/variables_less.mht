@@ -1,0 +1,334 @@
+From: "Saved by Windows Internet Explorer 9"
+Subject: 
+Date: Tue, 11 Dec 2012 13:36:48 -0500
+MIME-Version: 1.0
+Content-Type: text/html;
+	charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://bootswatch.com/spacelab/variables.less
+X-MimeOLE: Produced By Microsoft MimeOLE V6.1.7601.17609
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>><HTML><HEAD>
+<META content=3D"text/html; charset=3Dwindows-1252" =
+http-equiv=3D"Content-Type">
+<META name=3D"GENERATOR" content=3D"MSHTML 9.00.8112.16455"></HEAD>
+<BODY><PRE>// Spacelab 2.2.2=0A=
+// Variables=0A=
+// --------------------------------------------------=0A=
+=0A=
+=0A=
+// Global values=0A=
+// --------------------------------------------------=0A=
+=0A=
+=0A=
+// Grays=0A=
+// -------------------------=0A=
+@black:                 #000;=0A=
+@grayDarker:            #2D2D2D;=0A=
+@grayDark:              #434848;=0A=
+@gray:                  #666;=0A=
+@grayLight:             #bbb;=0A=
+@grayLighter:           #eee;=0A=
+@white:                 #fff;=0A=
+=0A=
+=0A=
+// Accent colors=0A=
+// -------------------------=0A=
+@blue:                  #3399F3;=0A=
+@blueDark:              #405A6A;=0A=
+@green:                 #3CB521;=0A=
+@red:                   #CD0200;=0A=
+@yellow:                #F4CA00;=0A=
+@orange:                #D47500;=0A=
+@pink:                  #F44B8C;=0A=
+@purple:                #405A6A;=0A=
+=0A=
+=0A=
+// Scaffolding=0A=
+// -------------------------=0A=
+@bodyBackground:        @white;=0A=
+@textColor:             @gray;=0A=
+=0A=
+=0A=
+// Links=0A=
+// -------------------------=0A=
+@linkColor:             #09d;=0A=
+@linkColorHover:        @linkColor;=0A=
+=0A=
+=0A=
+// Typography=0A=
+// -------------------------=0A=
+@sansFontFamily:        "Open Sans", "Helvetica Neue", Helvetica, Arial, =
+sans-serif;=0A=
+@serifFontFamily:       Georgia, "Times New Roman", Times, serif;=0A=
+@monoFontFamily:        Menlo, Monaco, Consolas, "Courier New", =
+monospace;=0A=
+=0A=
+@baseFontSize:          15px;=0A=
+@baseFontFamily:        @sansFontFamily;=0A=
+@baseLineHeight:        21px;=0A=
+@altFontFamily:         @serifFontFamily;=0A=
+=0A=
+@headingsFontFamily:    inherit; // empty to use BS default, =
+@baseFontFamily=0A=
+@headingsFontWeight:    normal;    // instead of browser default, bold=0A=
+@headingsColor:         @grayDarker; // empty to use BS default, =
+@textColor=0A=
+=0A=
+=0A=
+// Component sizing=0A=
+// -------------------------=0A=
+// Based on 14px font-size and 20px line-height=0A=
+=0A=
+@fontSizeLarge:         @baseFontSize * 1.25; // ~18px=0A=
+@fontSizeSmall:         @baseFontSize * 0.85; // ~12px=0A=
+@fontSizeMini:          @baseFontSize * 0.75; // ~11px=0A=
+=0A=
+@paddingLarge:          11px 19px; // 44px=0A=
+@paddingSmall:          2px 10px;  // 26px=0A=
+@paddingMini:           0px 6px;   // 22px=0A=
+=0A=
+@baseBorderRadius:      4px;=0A=
+@borderRadiusLarge:     6px;=0A=
+@borderRadiusSmall:     3px;=0A=
+=0A=
+=0A=
+// Tables=0A=
+// -------------------------=0A=
+@tableBackground:                   transparent; // overall =
+background-color=0A=
+@tableBackgroundAccent:             #f9f9f9; // for striping=0A=
+@tableBackgroundHover:              #f5f5f5; // for hover=0A=
+@tableBorder:                       #ddd; // table and cell border=0A=
+=0A=
+// Buttons=0A=
+// -------------------------=0A=
+@btnBackground:                     @white;=0A=
+@btnBackgroundHighlight:            @grayLighter;=0A=
+@btnBorder:                         darken(@btnBackground, 20%);=0A=
+=0A=
+@btnPrimaryBackground:              lighten(@linkColor, 10%);=0A=
+@btnPrimaryBackgroundHighlight:     @linkColor;=0A=
+=0A=
+@btnInfoBackground:                 lighten(#3A5D83, 10%);=0A=
+@btnInfoBackgroundHighlight:        #3A5D83;=0A=
+=0A=
+@btnSuccessBackground:              lighten(@green, 10%);=0A=
+@btnSuccessBackgroundHighlight:     @green;=0A=
+=0A=
+@btnWarningBackground:              lighten(@orange, 10%);=0A=
+@btnWarningBackgroundHighlight:     @orange;=0A=
+=0A=
+@btnDangerBackground:               lighten(@red, 10%);=0A=
+@btnDangerBackgroundHighlight:      @red;=0A=
+=0A=
+@btnInverseBackground:              lighten(@navbarInverseBackground, =
+15%);=0A=
+@btnInverseBackgroundHighlight:     @navbarInverseBackground;=0A=
+=0A=
+=0A=
+// Forms=0A=
+// -------------------------=0A=
+@inputBackground:               @white;=0A=
+@inputBorder:                   #ccc;=0A=
+@inputBorderRadius:             @baseBorderRadius;=0A=
+@inputDisabledBackground:       @grayLighter;=0A=
+@formActionsBackground:         #f5f5f5;=0A=
+@inputHeight:                   @baseLineHeight + 10px; // base =
+line-height + 8px vertical padding + 2px top/bottom border=0A=
+=0A=
+=0A=
+// Dropdowns=0A=
+// -------------------------=0A=
+@dropdownBackground:            @white;=0A=
+@dropdownBorder:                rgba(0,0,0,.2);=0A=
+@dropdownDividerTop:            #e5e5e5;=0A=
+@dropdownDividerBottom:         @white;=0A=
+=0A=
+@dropdownLinkColor:             @textColor;=0A=
+@dropdownLinkColorHover:        @white;=0A=
+@dropdownLinkColorActive:       @white;=0A=
+=0A=
+@dropdownLinkBackgroundActive:  @linkColor;=0A=
+@dropdownLinkBackgroundHover:   @dropdownLinkBackgroundActive;=0A=
+=0A=
+=0A=
+=0A=
+// COMPONENT VARIABLES=0A=
+// --------------------------------------------------=0A=
+=0A=
+=0A=
+// Z-index master list=0A=
+// -------------------------=0A=
+// Used for a bird's eye view of components dependent on the z-axis=0A=
+// Try to avoid customizing these :)=0A=
+@zindexDropdown:          1000;=0A=
+@zindexPopover:           1010;=0A=
+@zindexTooltip:           1030;=0A=
+@zindexFixedNavbar:       1030;=0A=
+@zindexModalBackdrop:     1040;=0A=
+@zindexModal:             1050;=0A=
+=0A=
+=0A=
+// Sprite icons path=0A=
+// -------------------------=0A=
+@iconSpritePath:          "../img/glyphicons-halflings.png";=0A=
+@iconWhiteSpritePath:     "../img/glyphicons-halflings-white.png";=0A=
+=0A=
+=0A=
+// Input placeholder text color=0A=
+// -------------------------=0A=
+@placeholderText:         @grayLight;=0A=
+=0A=
+=0A=
+// Hr border color=0A=
+// -------------------------=0A=
+@hrBorder:                @grayLighter;=0A=
+=0A=
+=0A=
+// Horizontal forms &amp; lists=0A=
+// -------------------------=0A=
+@horizontalComponentOffset:       180px;=0A=
+=0A=
+=0A=
+// Wells=0A=
+// -------------------------=0A=
+@wellBackground:                  @grayLighter;=0A=
+=0A=
+=0A=
+// Navbar=0A=
+// -------------------------=0A=
+@navbarCollapseWidth:             979px;=0A=
+@navbarCollapseDesktopWidth:      @navbarCollapseWidth + 1;=0A=
+=0A=
+@navbarHeight:                    40px;=0A=
+@navbarBackgroundHighlight:       @grayLighter;=0A=
+@navbarBackground:                lighten(@grayLight, 5%);=0A=
+@navbarBorder:                    @grayLight;=0A=
+=0A=
+@navbarText:                      @textColor;=0A=
+@navbarLinkColor:                 @textColor;=0A=
+@navbarLinkColorHover:            @black;=0A=
+@navbarLinkColorActive:           @black;=0A=
+@navbarLinkBackgroundHover:       transparent;=0A=
+@navbarLinkBackgroundActive:      transparent;=0A=
+=0A=
+@navbarBrandColor:                @navbarLinkColor;=0A=
+=0A=
+// Inverted navbar=0A=
+@navbarInverseBackground:                #6C737E;=0A=
+@navbarInverseBackgroundHighlight:       =
+lighten(@navbarInverseBackground, 25%);=0A=
+@navbarInverseBorder:                    =
+darken(@navbarInverseBackground, 5%);=0A=
+=0A=
+@navbarInverseText:                      @grayLighter;=0A=
+@navbarInverseLinkColor:                 @grayLighter;=0A=
+@navbarInverseLinkColorHover:            @white;=0A=
+@navbarInverseLinkColorActive:           @white;=0A=
+@navbarInverseLinkBackgroundHover:       transparent;=0A=
+@navbarInverseLinkBackgroundActive:      @navbarInverseBackground;=0A=
+=0A=
+@navbarInverseSearchBackground:          =
+lighten(@navbarInverseBackground, 25%);=0A=
+@navbarInverseSearchBackgroundFocus:     @white;=0A=
+@navbarInverseSearchBorder:              @navbarInverseBackground;=0A=
+@navbarInverseSearchPlaceholderColor:    @grayLighter;=0A=
+=0A=
+@navbarInverseBrandColor:                @navbarInverseLinkColor;=0A=
+=0A=
+=0A=
+// Pagination=0A=
+// -------------------------=0A=
+@paginationBackground:                #fff;=0A=
+@paginationBorder:                    #ddd;=0A=
+@paginationActiveBackground:          #f5f5f5;=0A=
+=0A=
+=0A=
+// Hero unit=0A=
+// -------------------------=0A=
+@heroUnitBackground:              @grayLighter;=0A=
+@heroUnitHeadingColor:            @headingsColor;=0A=
+@heroUnitLeadColor:               inherit;=0A=
+=0A=
+=0A=
+// Form states and alerts=0A=
+// -------------------------=0A=
+@warningText:             @white;=0A=
+@warningBackground:       @orange;=0A=
+@warningBorder:           darken(spin(@warningBackground, -10), 3%);=0A=
+=0A=
+@errorText:               @white;=0A=
+@errorBackground:         @red;=0A=
+@errorBorder:             darken(spin(@errorBackground, -10), 3%);=0A=
+=0A=
+@successText:             @white;=0A=
+@successBackground:       @green;=0A=
+@successBorder:           darken(spin(@successBackground, -10), 5%);=0A=
+=0A=
+@infoText:                @white;=0A=
+@infoBackground:          @blue;=0A=
+@infoBorder:              darken(spin(@infoBackground, -10), 7%);=0A=
+=0A=
+=0A=
+// Tooltips and popovers=0A=
+// -------------------------=0A=
+@tooltipColor:            #fff;=0A=
+@tooltipBackground:       #000;=0A=
+@tooltipArrowWidth:       5px;=0A=
+@tooltipArrowColor:       @tooltipBackground;=0A=
+=0A=
+@popoverBackground:       #fff;=0A=
+@popoverArrowWidth:       10px;=0A=
+@popoverArrowColor:       #fff;=0A=
+@popoverTitleBackground:  darken(@popoverBackground, 3%);=0A=
+=0A=
+// Special enhancement for popovers=0A=
+@popoverArrowOuterWidth:  @popoverArrowWidth + 1;=0A=
+@popoverArrowOuterColor:  rgba(0,0,0,.25);=0A=
+=0A=
+=0A=
+=0A=
+// GRID=0A=
+// --------------------------------------------------=0A=
+=0A=
+=0A=
+// Default 940px grid=0A=
+// -------------------------=0A=
+@gridColumns:             12;=0A=
+@gridColumnWidth:         60px;=0A=
+@gridGutterWidth:         20px;=0A=
+@gridRowWidth:            (@gridColumns * @gridColumnWidth) + =
+(@gridGutterWidth * (@gridColumns - 1));=0A=
+=0A=
+// 1200px min=0A=
+@gridColumnWidth1200:     70px;=0A=
+@gridGutterWidth1200:     30px;=0A=
+@gridRowWidth1200:        (@gridColumns * @gridColumnWidth1200) + =
+(@gridGutterWidth1200 * (@gridColumns - 1));=0A=
+=0A=
+// 768px-979px=0A=
+@gridColumnWidth768:      42px;=0A=
+@gridGutterWidth768:      20px;=0A=
+@gridRowWidth768:         (@gridColumns * @gridColumnWidth768) + =
+(@gridGutterWidth768 * (@gridColumns - 1));=0A=
+=0A=
+=0A=
+// Fluid grid=0A=
+// -------------------------=0A=
+@fluidGridColumnWidth:    percentage(@gridColumnWidth/@gridRowWidth);=0A=
+@fluidGridGutterWidth:    percentage(@gridGutterWidth/@gridRowWidth);=0A=
+=0A=
+// 1200px min=0A=
+@fluidGridColumnWidth1200:     =
+percentage(@gridColumnWidth1200/@gridRowWidth1200);=0A=
+@fluidGridGutterWidth1200:     =
+percentage(@gridGutterWidth1200/@gridRowWidth1200);=0A=
+=0A=
+// 768px-979px=0A=
+@fluidGridColumnWidth768:      =
+percentage(@gridColumnWidth768/@gridRowWidth768);=0A=
+@fluidGridGutterWidth768:      =
+percentage(@gridGutterWidth768/@gridRowWidth768);=0A=
+</PRE></BODY></HTML>
