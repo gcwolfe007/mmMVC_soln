@@ -15,17 +15,24 @@ namespace MM.Library.Entities
         #region Business Methods
 
 
-        #region IRentingParty Members
 
         [Key]
         public static readonly PropertyInfo<int> RenterIDProperty = RegisterProperty<int>(c => c.RenterID);
+        /// <summary>
+        /// Gets the renter ID.
+        /// </summary>
+        /// <value>
+        /// The renter ID.
+        /// </value>
         public int RenterID
         {
             get { return GetProperty(RenterIDProperty); }
             private set { LoadProperty(RenterIDProperty, value); }
         }
-
-
+        
+        /// <summary>
+        /// The create date property
+        /// </summary>
         public static readonly PropertyInfo<SmartDate> CreateDateProperty =
             RegisterProperty<SmartDate>(c => c.CreateDate, null, new SmartDate(DateTime.Now));
         [Display(Name = "Create Date")]
@@ -36,6 +43,9 @@ namespace MM.Library.Entities
             set { SetPropertyConvert<SmartDate, string>(CreateDateProperty, value); }
         }
 
+        /// <summary>
+        /// The addresses property
+        /// </summary>
         public static readonly PropertyInfo<PartyAddresses> AddressesProperty =
             RegisterProperty<PartyAddresses>(c => c.Addresses, RelationshipTypes.Child);
         public PartyAddresses Addresses
@@ -48,7 +58,10 @@ namespace MM.Library.Entities
             }
             set { SetProperty(AddressesProperty, value); }
         }
-        
+
+        /// <summary>
+        /// The contact items property
+        /// </summary>
         public static readonly PropertyInfo<PartyContactInfoItems> ContactItemsProperty =
             RegisterProperty<PartyContactInfoItems>(c => c.ContactItems, RelationshipTypes.Child);
         public PartyContactInfoItems ContactItems
@@ -61,8 +74,6 @@ namespace MM.Library.Entities
             }
             set { SetProperty(AddressesProperty, value); }
         }
-
-        #endregion
 
         /// <summary>
         /// Gets or sets the first name.
@@ -100,6 +111,24 @@ namespace MM.Library.Entities
         {
             get { return GetProperty(MiddleNameProperty); }
             set { SetProperty(MiddleNameProperty, value); }
+        }
+
+        public static readonly PropertyInfo<string> EmailProperty = RegisterProperty<string>(c => c.Email);
+
+        [Display(Name = "Email Address")]
+        [Required(ErrorMessage = "'Email address' is required")]
+        public string Email
+        {
+            get { return GetProperty(EmailProperty); }
+            set { SetProperty(EmailProperty, value); }
+        }
+
+        public static readonly PropertyInfo<string> FriendlyNameProperty = RegisterProperty<string>(c => c.FriendlyName);
+        [Display(Name = "Preferred Name")]
+        public string FriendlyName
+        {
+            get { return GetProperty(FriendlyNameProperty); }
+            set { SetProperty(FriendlyNameProperty, value); }
         }
 
         public static readonly PropertyInfo<SmartDate> ModifyDateProperty = RegisterProperty<SmartDate>(c => c.ModifyDate, null, new SmartDate(DateTime.Now));
@@ -186,7 +215,7 @@ namespace MM.Library.Entities
 
             Addresses.Assign(-1);
 
-            var result = ContactInfoTypeList.GetList().GetItemByValue("Email").Key;
+            var result = ContactInfoTypeList.GetList().GetItemByValue("Home Phone").Key;
 
             ContactItems.Assign(-1, result);
 
