@@ -117,72 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="p_addressid" xml:space="preserve">
-    <value>@AddressID</value>
-    <comment>Sql Parameter Name</comment>
-  </data>
-  <data name="p_addresstype" xml:space="preserve">
-    <value>@AddressType</value>
-    <comment>Sql Parameter Name</comment>
-  </data>
-  <data name="p_addresstypeid" xml:space="preserve">
-    <value>@AddressTypeID</value>
-    <comment>Sql Parameter Name</comment>
-  </data>
-  <data name="p_citytown" xml:space="preserve">
-    <value>@CityTown</value>
-    <comment>Sql Parameter Name</comment>
-  </data>
-  <data name="p_country" xml:space="preserve">
-    <value>@Country</value>
-    <comment>Sql Parameter Name</comment>
-  </data>
-  <data name="p_email" xml:space="preserve">
-    <value>@Email</value>
-    <comment>Sql Parameter Name</comment>
-  </data>
-  <data name="p_firstname" xml:space="preserve">
-    <value>@FirstName</value>
-    <comment>Sql Parameter Name</comment>
-  </data>
-  <data name="p_friendlyName" xml:space="preserve">
-    <value>@FriendlyName</value>
-    <comment>Sql Parameter Name</comment>
-  </data>
-  <data name="p_lastname" xml:space="preserve">
-    <value>@LastName</value>
-    <comment>Sql Parameter Name</comment>
-  </data>
-  <data name="p_lineone" xml:space="preserve">
-    <value>@LineOne</value>
-    <comment>Sql Parameter Name</comment>
-  </data>
-  <data name="p_linethree" xml:space="preserve">
-    <value>@LineThree</value>
-    <comment>Sql Parameter Name</comment>
-  </data>
-  <data name="p_linetwo" xml:space="preserve">
-    <value>@LineTwo</value>
-    <comment>Sql Parameter Name</comment>
-  </data>
-  <data name="p_middlename" xml:space="preserve">
-    <value>@MiddleName</value>
-    <comment>Sql Parameter Name</comment>
-  </data>
-  <data name="p_phone" xml:space="preserve">
-    <value>@Phone</value>
-    <comment>Sql Parameter Name</comment>
-  </data>
-  <data name="p_postalcode" xml:space="preserve">
-    <value>@PostalCode</value>
-    <comment>Sql Parameter Name</comment>
-  </data>
-  <data name="p_renterid" xml:space="preserve">
-    <value>@RenterID</value>
-    <comment>Sql Parameter Name</comment>
-  </data>
-  <data name="p_stateprovince" xml:space="preserve">
-    <value>@StateProvince</value>
-    <comment>Sql Parameter Name</comment>
+  <data name="Target" xml:space="preserve">
+    <value>H4sIAAAAAAAEAOy9B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3mkuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZkAWz2zkrayZ4hgKrIHz9+fB8/Iv7Hv/cffPx7vFuU6WVeN0W1/Oyj3fHOR2m+nFazYnnx2Ufr9nz74KPf4+g3Th6fzhbv0p807fbQjt5cNp99NG/b1aO7d5vpPF9kzXhRTOuqqc7b8bRa3M1m1d29nZ2Du7s7d3MC8RHBStPHr9bLtljk/Af9eVItp/mqXWflF9UsLxv9nL55zVDTF9kib1bZNP/so8Xii588GUu7j9LjssgIh9d5ef6eCO08BEIf2a6os1NCqr1+c73KucPPPvqqyWu/BbX5vfLr4AP66GVdrfK6vX6Vn3vvnc0+Su+G797tvmxf7bwHFD776GzZ3tv7KH2xLstsUtIH51nZ5B+lq08fvW6rOv88X+Z11uazl1nb5jVNy9ks5yEoKR6tPr0dNR7e3dkDNe5my2XVZi3NcQ/5Dqqni6woDaav25r45aP0WfEunz3Plxft3GL7RfbOfEK/fpR+tSyIveiltl7nkdFt7vZZUTctfn3Pru/vfGjPXxSzWZl/013L35t7fp79HA35WV3ky1l5/U13fptBn9Q5sfZT+r/pGb+/KYDJew7jdZvV7fG0LS6/GXiny9k3CE0GypL/9CbJv4FDSWufX38jSAmo90fq8V2nQ/ualdR8mxWktDx11+DD/F3bUbPywuu89Zt+lDroovPHrKGjKNjOnDG5K9bEWJ27A2bn8RfZakVM7pkh/SR9LTboZPv1+1ubhcC4O20iRsdia3siDZ9d5J1vqWvClJUgzW02yTABJ7NFr9ltSGu68inctW2O4KY1fpc3fEssE9F52xHuGY1lQbaJh6WDIgxiFlZffD3NyqwesI8nVbleLDfZ2k1Q1HT5QPSj28Pw7JAPx/v49rB8y+ID8z+/PTRnLXxY7tPbQwrVfzDM4JvbQ/SVug/P//z20Hp63QfZ+/L2cDv6PeCT8Kvbwwy1fH/s5pvbQ/S1fcA13ufvCy2GX/hNH+Ljux0Z76oQzyRoy1Af6fdOIW1S5t0mtner1DvK+7Eq0psDi55mlSYfpUSqy2IGrfr6umnzxRgNxq9/UXlSkhi0rsEX2bI4z5v2TfU2R5BEiv/rRyjWJ2+aWfn/5jClAAluDEje0wEJwovlZVZP51m9tcje3XlvUL2QwYDrOazvCbgfEdwC8m18367Dfwuwt0I45s/fAvZtUO676zP6HTH+e2M54K5/bXhRd/1rQ4u56ywB7wmn76x/bZRizvrNKL2fq953O0OUYv76oLsuipVGPKkIX8FQHfyv6cn3lfzju36O6fHTvCkuHAhknJb5FIkOB9S0OVueV4bENCIfI9OkOwN5m9H0Zcd1W5xn05a+nuZNw4HyT2blGly4mOSzs+WX63a1bo+bJl9Mymt/vI/vbu6fw5UQ58dfrvCXZ9W+/hAIzQIc+OXyybooZxbvZxHOGQABHlETQFhRooDAXVxbSC+q5S0BKfme5itSV2RA3uSLVUnAmi+Xr7PLfBi3m2kYUuzx0yK7qLNFozDc+/QnsR8lLI/+nwAAAP//XF6q+SUVAAA=</value>
   </data>
 </root>

@@ -30,6 +30,12 @@
         
             @Html.EditorFor(model => model.ModelObject.LastName)
             @Html.ValidationMessageFor(model => model.ModelObject.LastName)
+
+            @Html.LabelFor(model => model.ModelObject.Email)
+        
+        
+            @Html.EditorFor(model => model.ModelObject.Email)
+            @Html.ValidationMessageFor(model => model.ModelObject.Email)
         
         
             @Html.LabelFor(model => model.ModelObject.MiddleName)
@@ -123,11 +129,11 @@
             @Html.EditorFor(model => model.PostalCode)
         
         
-            @Html.LabelFor(model => model.Email)
+            @Html.LabelFor(model => model.Phone)
         
         
-            @Html.EditorFor(model => model.Email)
-            @Html.ValidationMessageFor(model => model.Email)
+            @Html.EditorFor(model => model.Phone)
+            @Html.ValidationMessageFor(model => model.Phone)
         
         <p>
             <input type="submit" value="Create" />

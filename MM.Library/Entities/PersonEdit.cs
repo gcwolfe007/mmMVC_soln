@@ -43,6 +43,15 @@ namespace MM.Library.Entities
             set { SetPropertyConvert<SmartDate, string>(CreateDateProperty, value); }
         }
 
+
+        public static readonly PropertyInfo<int> CreateUserProperty = RegisterProperty<int>(c => c.CreateUser);
+        public int CreateUser
+        {
+            get { return GetProperty(CreateUserProperty); }
+            set { SetProperty(CreateUserProperty, value); }
+        }
+        
+        
         /// <summary>
         /// The addresses property
         /// </summary>
@@ -117,6 +126,7 @@ namespace MM.Library.Entities
 
         [Display(Name = "Email Address")]
         [Required(ErrorMessage = "'Email address' is required")]
+        [RegularExpression("^[a-z0-9_\\+-]+(\\.[a-z0-9_\\+-]+)*@[a-z0-9]+(\\.[a-z0-9]+)*\\.([a-z]{2,4})$", ErrorMessage = "Must provide a valid Email address.")]
         public string Email
         {
             get { return GetProperty(EmailProperty); }
@@ -213,6 +223,9 @@ namespace MM.Library.Entities
             //myAddress.Type = (int)AddressEdit.TypeAddress.Mailing;  
             //Addresses.Add(myAddress);
 
+            
+
+
             Addresses.Assign(-1);
 
             var result = ContactInfoTypeList.GetList().GetItemByValue("Home Phone").Key;
@@ -293,13 +306,18 @@ namespace MM.Library.Entities
                         FirstName = this.FirstName,
                         MiddleName = this.MiddleName,
                         LastName = this.LastName,
+                        Email = this.Email,
+                        CreateUserID = this.CreateUser, 
                         CreateDate = (SmartDate)mydate,
                         Addresses = Addresses.LoadAddresses(),
                         ContactInfoItems = ContactItems.LoadContactInfoItems()
                     };
 
-                    dal.Insert(item);
-                    RenterID = item.RenterID;
+                    var myDTO = new MM.DAL.RenterAccountDTO();
+                    myDTO.Renter = item;
+
+                    dal.Insert(myDTO);
+                    RenterID = myDTO.Renter.RenterID;
 
                 }
                 //FieldManager.UpdateChildren();

@@ -55,13 +55,13 @@ namespace MM.DAL.SQL.StoredProcedures
                              System.Diagnostics.Debug.WriteLine("Parameter: " + parm.ParameterName + " - Value: " + parm.Value);
                          }
                      }
-                     var email = concDTO.Renter.ContactInfoItems[0];
-                     myAccessCommand.Parameters.AddWithValue("@Email", email.ContactInfoItem);
-                     myAccessCommand.Parameters.AddWithValue("@ContactType", email.ContactInfoTypeID);                       
+                     var phone = concDTO.Renter.ContactInfoItems[0];
+                     myAccessCommand.Parameters.AddWithValue("@Phone", phone.ContactInfoItem);
+                     myAccessCommand.Parameters.AddWithValue("@ContactType", phone.ContactInfoTypeID);
 
 
 
-                     var myStuff = DataMapper.CreateCriteriaParameters(myDTO);
+                     var myStuff = DataMapper.CreateCriteriaParameters(concDTO.Renter);
                      foreach (SqlParameter parm in myStuff)
                      {
                          if (parm.ParameterName.Length > 0)
@@ -79,7 +79,7 @@ namespace MM.DAL.SQL.StoredProcedures
                      outParm.Direction = System.Data.ParameterDirection.Output;
                      outParm.ParameterName = "@AccountID";
 
-                     myAccessCommand.Parameters.AddWithValue("@UserID", 99);
+                     myAccessCommand.Parameters.AddWithValue("@UserID", concDTO.Renter.CreateUserID);
 
                      var myCount = myAccessCommand.Parameters.Count;
 

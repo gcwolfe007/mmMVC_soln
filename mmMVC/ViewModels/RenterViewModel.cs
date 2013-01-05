@@ -93,10 +93,8 @@ namespace mmMVC.ViewModels
 
         }
 
-        [Display(Name = "Email Adderss")]
-        [Required(ErrorMessage="Email Address is Required")]
-        [RegularExpression("^[a-z0-9_\\+-]+(\\.[a-z0-9_\\+-]+)*@[a-z0-9]+(\\.[a-z0-9]+)*\\.([a-z]{2,4})$", ErrorMessage = "Must provide valid Email address.")]
-        public string Email 
+     
+        public string Phone 
         {
             get
             {
@@ -104,7 +102,9 @@ namespace mmMVC.ViewModels
             }
             set 
             {
-                _contactInfoItems[0].ContactInfoItem = value;          
+               
+                _contactInfoItems[0].ContactInfoItem = value; 
+         
             }
         }
 

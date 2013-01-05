@@ -49,8 +49,9 @@ namespace mmMVC.Controllers
         public ActionResult Create(RenterViewModel personedit)
         {
 
+            var myContext = new Models.UsersContext();
+            personedit.ModelObject.CreateUser = myContext.GetUserID(Csla.ApplicationContext.User.Identity.Name);
            
-            
             
             if (personedit.Save(ModelState, false))
             {

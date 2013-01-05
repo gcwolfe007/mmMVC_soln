@@ -124,6 +124,15 @@ namespace MM.DAL.SQL.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to @FriendlyName.
+        /// </summary>
+        internal static string p_friendlyName {
+            get {
+                return ResourceManager.GetString("p_friendlyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to @LastName.
         /// </summary>
         internal static string p_lastname {

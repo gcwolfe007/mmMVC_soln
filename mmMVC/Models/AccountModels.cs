@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -17,6 +18,18 @@ namespace mmMVC.Models
         }
 
         public DbSet<User> Users { get; set; }
+
+        public int GetUserID(string userName)
+        {    
+            var query = from user in Users
+                        where user.Email == userName
+                        select user;
+            return query.FirstOrDefault().UserId;
+                        
+        }
+
+
+
     }
 
     [Table("Users")]
