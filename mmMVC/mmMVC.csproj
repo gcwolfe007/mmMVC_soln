@@ -371,6 +371,7 @@
     <Content Include="Views\Shared\_firsttry_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app_code\Content.cshtml" />
     <None Include="Content\bootswatch_less.mht" />
     <None Include="Content\variables_less.mht" />
     <Content Include="Views\Shared\_html5shiv.cshtml" />
