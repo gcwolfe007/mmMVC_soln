@@ -36,7 +36,7 @@ namespace MM.Library.Entities
         public static readonly PropertyInfo<SmartDate> CreateDateProperty =
             RegisterProperty<SmartDate>(c => c.CreateDate, null, new SmartDate(DateTime.Now));
         [Display(Name = "Create Date")]
-        [Required(ErrorMessage = "'A First Name' is required")]
+        [Required(ErrorMessage = "'A Create Date' is required")] 
         public string CreateDate
         {
             get { return GetPropertyConvert<SmartDate, string>(CreateDateProperty); }
