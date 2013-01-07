@@ -15,15 +15,16 @@
 </head>
 <body>
     <div class="container">
-        <div class="row">
-            <div class="span2">
+        <div class="row-fluid">
+            <div class="span2 well">
                 <h2>
-                    Heading</h2>
+                    SideBar</h2>
+               Will maybe have some cool
+               navigation things here.  
+
             </div>
-            <div class="span10">
-                <p>
-                    @Html.ActionLink("Create New", "Create")
-                </p>
+            <div class="span9">
+           
                 <table class="table table-bordered table-hover table-condensed">
                     <tr>
                         <th>
@@ -72,6 +73,10 @@
                         </tr>
                     }
                 </table>
+                     <p>                
+                   @Html.ActionLink("Add New Tenant", "Create", "Renter" , null, new { @class = "btn-large btn-primary" })
+                </p>
+                <p></p>
             </div>
         </div>
     </div>

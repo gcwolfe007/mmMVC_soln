@@ -10,8 +10,8 @@
 
     
     <div class="container">
-        <div class="row">
-            <div class="span6">
+        <div class="row-fluid">
+            <div class="well span6">
                 <fieldset>
                     <legend>Personal Information</legend>
                     @Html.LabelFor(model => model.ModelObject.CreateDate)
@@ -34,7 +34,7 @@
                     @Html.ValidationMessageFor(model => model.Phone)
                 </fieldset>
             </div>
-            <div class="span6">
+            <div class=" well span5">
                 <fieldset>
                     <legend>Address Information</legend>
                     @Html.LabelFor(model => model.LineOne)
@@ -45,8 +45,8 @@
                     @Html.LabelFor(model => model.CityTown)
                     @Html.EditorFor(model => model.CityTown)
                     @Html.LabelFor(model => model.StateProvince)
-                    @Html.EditorFor(model => model.StateProvince)
-                    <select style="margin-left: 4px;" id="state" class="required" tabindex="8" name="state">
+                    <select style="margin-left: 4px;" id="StateProvince" class="required" 
+                        name="StateProvince">
                         <option value="">Choose State:</option>
                         <option value="AL">Alabama</option>
                         <option value="AK">Alaska</option>
@@ -102,12 +102,12 @@
                     @Html.LabelFor(model => model.PostalCode)
                     @Html.EditorFor(model => model.PostalCode)
                 </fieldset>
+                <p >
+                    <input class="btn-large btn-primary" type="submit" value="Add Tenant"  />
+                </p>
             </div>
         </div>
-        <p>
-            <input type="submit" value="Create" />
-        </p>
-</div>
+    </div>
 }
 <div>
     @Html.ActionLink("Back to List", "Index")
