@@ -33,7 +33,7 @@ namespace mmMVC.Controllers
 
         //
         // GET: /Renter/Create
-
+         [Csla.Web.Mvc.HasPermission(Csla.Rules.AuthorizationActions.CreateObject, typeof(PersonEdit),"User does not Have Permission")]
         public ActionResult Create()
         {
             ViewData.Model = new RenterViewModel();
@@ -45,7 +45,7 @@ namespace mmMVC.Controllers
         //
         // POST: /Renter/Create
 
-        [HttpPost]
+        [HttpPost]       
         public ActionResult Create(RenterViewModel personedit)
         {
 

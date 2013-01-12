@@ -168,8 +168,14 @@ namespace MM.Library.Entities
         protected override void AddBusinessRules()
         {
             base.AddBusinessRules();
+            //BusinessRules.AddRule(new StartDateGTEndDate { PrimaryProperty = StartedProperty, AffectedProperties = { EndedProperty } });
+            //BusinessRules.AddRule(new StartDateGTEndDate { PrimaryProperty = EndedProperty, AffectedProperties = { StartedProperty } });
 
-            // TODO: add validation rules
+            //BusinessRules.AddRule(new Csla.Rules.CommonRules.IsInRole(Csla.Rules.AuthorizationActions.WriteProperty, NameProperty, "ProjectManager"));
+            //BusinessRules.AddRule(new Csla.Rules.CommonRules.IsInRole(Csla.Rules.AuthorizationActions.WriteProperty, StartedProperty, "ProjectManager"));
+            //BusinessRules.AddRule(new Csla.Rules.CommonRules.IsInRole(Csla.Rules.AuthorizationActions.WriteProperty, EndedProperty, "ProjectManager"));
+            //BusinessRules.AddRule(new Csla.Rules.CommonRules.IsInRole(Csla.Rules.AuthorizationActions.WriteProperty, DescriptionProperty, "ProjectManager"));
+            //BusinessRules.AddRule(new NoDuplicateResource { PrimaryProperty = ResourcesProperty });
         }
 
         #endregion
@@ -179,6 +185,18 @@ namespace MM.Library.Entities
         private static void AddObjectAuthorizationRules()
         {
             // TODO: add object-level authorization rules
+            Csla.Rules.BusinessRules.AddRule(typeof(PersonEdit),
+                new Csla.Rules.CommonRules.IsInRole
+                    (Csla.Rules.AuthorizationActions.CreateObject, "Administrator"));
+            Csla.Rules.BusinessRules.AddRule(typeof(PersonEdit),
+                new Csla.Rules.CommonRules.IsInRole
+                    (Csla.Rules.AuthorizationActions.EditObject, "Administrator"));
+            Csla.Rules.BusinessRules.AddRule(typeof(PersonEdit), 
+                new Csla.Rules.CommonRules.IsInRole
+                    (Csla.Rules.AuthorizationActions.DeleteObject, "ProjectManager", "Administrator"));
+            Csla.Rules.BusinessRules.AddRule(typeof(PersonEdit),
+               new Csla.Rules.CommonRules.IsInRole
+                   (Csla.Rules.AuthorizationActions.GetObject, "ProjectManager", "Administrator"));
         }
 
         #endregion
