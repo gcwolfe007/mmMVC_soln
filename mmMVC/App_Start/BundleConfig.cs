@@ -40,6 +40,12 @@ namespace mmMVC
 
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/bootstrap.css"));
 
+            bundles.Add(new StyleBundle("~/media/css").Include("~/media/css/demo_page.css",
+                "~/media/css/demo_table.css",
+                "~/media/css/demo_table_jui.css",
+                "~/media/css/jquery.dataTables.css"
+                ));
+
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",
                         "~/Content/themes/base/jquery.ui.resizable.css",

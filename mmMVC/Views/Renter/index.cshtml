@@ -1,4 +1,5 @@
 ﻿@using Csla.Web.Mvc
+@using System.Web.Optimization
 @model MM.Library.Collections.TenantInfoList
 
 @{
@@ -7,7 +8,10 @@
 }
 
 @section Scripts {
- @Content.Script("myjquery.js",Url);
+
+ @Content.dataTables("jquery.dataTables.js", Url)
+ @Content.Script("myjquery.js",Url)
+ 
 } 
 <!DOCTYPE html>
 
@@ -15,6 +19,10 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Tenants List</title>
+ <style type="text/css">
+   @@import url("/media/css/demo_page.css");
+   @@import url("/media/css/demo_table.css");
+</style>
 </head>
 <body>
     <div class="container">
@@ -27,62 +35,71 @@
 
             </div>
             <div class="span9">
-           
-                <table class="table table-bordered table-hover table-condensed">
-                    <tr>
-                        <th>
-                            Account Num
-                        </th>
-                        <th>
-                            Tenant Name
-                        </th>
-                        <th>
-                            Date Added
-                        </th>
-                        <th>
-                            City/Town
-                        </th>
-                        <th>
-                            Email Address
-                        </th>
-                        <th>
-                            Actions
-                        </th>
-                    </tr>
-                    @foreach (var item in Model)
-                    {
+                <table id="tentantsList" class="display table table-bordered table-hover table-condensed">
+                    <thead>
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.AccountNumber)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.FullName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.DateAdded)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.CityTown)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Email)
-                            </td>
-                            <td>
-                                @Html.HasPermission(Csla.Rules.AuthorizationActions.EditObject, typeof(MM.Library.Entities.RenterAccountEdit), Html.ActionLink("Edit", "Edit", new { id = item.AccountID }), "Edit")
-                                |
-                                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                            </td>
+                            <th>
+                                Account Num
+                            </th>
+                            <th>
+                                Tenant Name
+                            </th>
+                            <th>
+                                Date Added
+                            </th>
+                            <th>
+                                City/Town
+                            </th>
+                            <th>
+                                Email Address
+                            </th>
+                            <th>
+                                Actions
+                            </th>
                         </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                      
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AccountNumber)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FullName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DateAdded)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CityTown)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @Html.HasPermission(Csla.Rules.AuthorizationActions.EditObject, typeof(MM.Library.Entities.RenterAccountEdit), Html.ActionLink("Edit", "Edit", new { id = item.AccountID }), "Edit")
+                                    |
+                                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                                </td>
+                            </tr>
+                       
+                         
                     }
+                    </tbody>
                 </table>
-                     <p>                
-                   @Html.ActionLink("Add New Tenant", "Create", "Renter" , null, new { @class = "btn-large btn-primary" })
-                </p>
-                <p></p>
+            
             </div>
         </div>
     </div>
-    
+    <div>
+        <p>
+            @Html.ActionLink("Add New Tenant", "Create", "Renter", null, new { @class = "btn-large btn-primary" })
+        </p>
+        <p>
+        </p>
+    </div>
 </body>
 </html>

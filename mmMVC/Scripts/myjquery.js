@@ -1,6 +1,6 @@
 ﻿
 $(document).ready(function () {
 
-    alert("Hello MuthrFucker");
+    $("#tentantsList").dataTable();
 
 });

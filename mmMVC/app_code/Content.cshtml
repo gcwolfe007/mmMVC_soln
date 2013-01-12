@@ -4,4 +4,12 @@
          {
              <script src="@url.Content("~/Scripts/" + scriptName )" type="text/javascript"></script>
               
-                 }
+         }
+
+         @helper dataTables(string scriptName, UrlHelper url)
+         {
+              <script src="@url.Content("~/media/js/" + scriptName)" type="text/javascript"></script>
+             
+         }
+
+
