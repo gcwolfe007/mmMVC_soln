@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>jquery.dataTables.columnFilter</id>
+    <version>1.0.2</version>
+    <title>DataTables Column Filter Add-on</title>
+    <authors>Jovan Popovic (packaged by Harry McIntyre)</authors>
+    <owners>Jovan Popovic (packaged by Harry McIntyre)</owners>
+    <licenseUrl>http://www.opensource.org/licenses/bsd-license.php</licenseUrl>
+    <projectUrl>http://code.google.com/p/jquery-datatables-column-filter/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Adds advanced filter capabilities to DataTables. JS file</description>
+    <tags>jquery datatables columnfilter</tags>
+    <dependencies>
+      <dependency id="jquery.datatables" version="1.9.0" />
+    </dependencies>
+    <references />
+  </metadata>
+</package>

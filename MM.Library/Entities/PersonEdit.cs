@@ -149,6 +149,26 @@ namespace MM.Library.Entities
             set { SetPropertyConvert<SmartDate, string>(ModifyDateProperty, value); }
         }
 
+        public static readonly PropertyInfo<string> FullNameProperty = RegisterProperty<string>(c => c.FullName);
+        [Display(Name="Tenant Name")] 
+        public string FullName
+        {
+            get
+            {
+                    return GetProperty(FirstNameProperty) + " " 
+                    + GetProperty(MiddleNameProperty) + " "
+                    + GetProperty(LastNameProperty); 
+            }
+            private set { LoadProperty(FullNameProperty, value); }
+        }
+
+
+        public override string ToString()
+        {
+            var fullname = GetProperty(FirstNameProperty) + " " + GetProperty(MiddleNameProperty) + " " + GetProperty(LastNameProperty);
+
+            return fullname;
+        }
 
         protected override void OnChildChanged(Csla.Core.ChildChangedEventArgs e)
         {

@@ -38,11 +38,10 @@
         </div>
 
                 <div class="editor-label">
-            @Html.LabelFor(model => model.AccountNumber)
+            @Html.LabelFor(model => model.Renter.FullName)
         </div>
         <div >
-            @Html.EditorFor(model => model.AccountNumber)
-            @Html.ValidationMessageFor(model => model.AccountNumber)
+            @Html.DisplayFor(model => model.Renter.FullName)           
         </div>
 
         <p>
