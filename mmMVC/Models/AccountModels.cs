@@ -28,6 +28,15 @@ namespace mmMVC.Models
                         
         }
 
+        public string GetFriendlyName(string userName)
+        {
+            var query = from user in Users
+                        where user.Email == userName
+                        select user;
+            return query.FirstOrDefault().FriendlyName;
+          
+        }
+
 
 
     }

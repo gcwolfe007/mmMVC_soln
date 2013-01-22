@@ -3,27 +3,30 @@
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="container">  
+<div class="container">
     <div class="row">
-   
+        <ul class="breadcrumb">
+            <li>@Html.ActionLink("Home", "Index", "Home") <span class="divider">/</span></li>
+            <li>@Html.ActionLink("Back to List", "Index")<span class="divider">/</span></li>
+            <li class="active">Edit</li>
+        </ul>
         <div class="span1">
-           <h2>
-        Edit</h2>
+            <h2>
+                Edit</h2>
         </div>
-        <div class="span10 well">
+        <div class="span10">
             @using (Html.BeginForm("Edit", "Renter", FormMethod.Post, new { @class = "form-horizontal" }))
             {
                 @Html.ValidationSummary(true)
 
                 <fieldset>
-                    <legend><span class="editor-label">
-                     <strong>   @Html.DisplayFor(model => model.Renter.FullName)</strong>
+                    <legend><span class="editor-label"><strong>@Html.DisplayFor(model => model.Renter.FullName)</strong>
                     </span></legend>
-                    <address>                       
+                    <address>
                         @Html.DisplayFor(model => model.Renter.Addresses[0].LineOne)<br>
-                        @Html.DisplayFor(model => model.Renter.Addresses[0].CityTown), 
+                        @Html.DisplayFor(model => model.Renter.Addresses[0].CityTown),
                         @Html.DisplayFor(model => model.Renter.Addresses[0].StateProvince)
-                          @Html.DisplayFor(model => model.Renter.Addresses[0].PostalCode)<br>
+                        @Html.DisplayFor(model => model.Renter.Addresses[0].PostalCode)<br>
                         <abbr title="Phone">
                             P:</abbr>
                         (123) 456-78906.
@@ -35,6 +38,26 @@
                     <div class="control-group">
                         @Html.LabelFor(model => model.CreateUserID)
                         @Html.DisplayFor(model => model.CreateUserID)
+                    </div>
+                    <div style="background-color:Beige; border:1px solid silver; border-radius:8px; padding:20px">
+                     
+                        <ul class="nav nav-tabs">
+                            <li><a href="#units" data-toggle="tab" >Storage Units Rented</a></li>
+                            <li><a href="#transactions" data-toggle="tab">Account Transations</a></li>
+                            <li><a href="#messages" data-toggle="tab">Messages</a></li>
+                            <li><a href="#details" data-toggle="tab">Tenant Account Details</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="units">
+                                Go your Self</div>
+                            <div class="tab-pane" id="transactions">
+                                Same to you</div>
+                            <div class="tab-pane" id="messages">
+                                WE the people</div>
+                            <div class="tab-pane" id="details">
+                                In order to
+                            </div>
+                        </div>
                     </div>
                     <p>
                         <input type="submit" value="Save" />

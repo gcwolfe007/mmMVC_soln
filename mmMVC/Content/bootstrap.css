@@ -5413,3 +5413,12 @@ i[class^="icon-"] {
 .affix {
   position: fixed;
 }
+.myTabs
+{
+    background-color: #99CCFF;
+    border: thin solid #999999;
+     border-radius:8px;
+     box-shadow: 5px 5px 3px #888888;
+    padding: 20px;
+    margin: 10px;
+}
