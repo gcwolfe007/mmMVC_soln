@@ -18,6 +18,12 @@ namespace mmMVC
                         "~/Scripts/jquery.unobtrusive*",
                         "~/Scripts/jquery.validate*"));
 
+            //bundles.Add(new ScriptBundle("~/bundles/bs").Include(
+            //          "~/Scripts/jquery-1.*",
+            //            "~/Scripts/bootstrap.js"
+            //    ));
+
+
             bundles.Add(new ScriptBundle("~/js").Include(
                         "~/Scripts/jquery-1.*",
                         "~/Scripts/bootstrap.js",
