@@ -62,6 +62,8 @@ namespace MM.Library.Entities
        }
 
        public static readonly PropertyInfo<string> AccountNumberProperty = RegisterProperty<string>(c => c.AccountNumber);
+       [Display(Name = "Account Number")]
+       [Required(ErrorMessage = "'Account Number' is required")]
        public string AccountNumber
        {
            get { return GetProperty(AccountNumberProperty); }

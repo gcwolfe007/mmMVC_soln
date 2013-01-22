@@ -1,59 +1,52 @@
 ﻿@model MM.Library.Entities.RenterAccountEdit
-
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Edit</h2>
-
-@using (Html.BeginForm()) {
-    @Html.ValidationSummary(true)
-
-    <fieldset>
-        <legend>RenterAccountEdit</legend>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.CreateDate)
+<div class="container">  
+    <div class="row">
+   
+        <div class="span1">
+           <h2>
+        Edit</h2>
         </div>
-        <div class="editor-label">
-            @Html.DisplayFor(model => model.CreateDate)
-            
-        </div>
+        <div class="span10 well">
+            @using (Html.BeginForm("Edit", "Renter", FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                @Html.ValidationSummary(true)
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.CreateUserID)
+                <fieldset>
+                    <legend><span class="editor-label">
+                     <strong>   @Html.DisplayFor(model => model.Renter.FullName)</strong>
+                    </span></legend>
+                    <address>                       
+                        @Html.DisplayFor(model => model.Renter.Addresses[0].LineOne)<br>
+                        @Html.DisplayFor(model => model.Renter.Addresses[0].CityTown), 
+                        @Html.DisplayFor(model => model.Renter.Addresses[0].StateProvince)
+                          @Html.DisplayFor(model => model.Renter.Addresses[0].PostalCode)<br>
+                        <abbr title="Phone">
+                            P:</abbr>
+                        (123) 456-78906.
+                    </address>
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.CreateDate)
+                        @Html.DisplayFor(model => model.CreateDate, new { @class = "controls" })
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.CreateUserID)
+                        @Html.DisplayFor(model => model.CreateUserID)
+                    </div>
+                    <p>
+                        <input type="submit" value="Save" />
+                    </p>
+                </fieldset>
+            }
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.CreateUserID)
-            @Html.ValidationMessageFor(model => model.CreateUserID)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.AccountNumber)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.AccountNumber)
-            @Html.ValidationMessageFor(model => model.AccountNumber)
-        </div>
-
-                <div class="editor-label">
-            @Html.LabelFor(model => model.Renter.FullName)
-        </div>
-        <div >
-            @Html.DisplayFor(model => model.Renter.FullName)           
-        </div>
-
-        <p>
-            <input type="submit" value="Save" />
-        </p>
-    </fieldset>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
+    </div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
 </div>
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
