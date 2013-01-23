@@ -4,12 +4,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="container">
-    <div class="row">
+    <div class="row-fluid">
         <ul class="breadcrumb">
             <li>@Html.ActionLink("Home", "Index", "Home") <span class="divider">/</span></li>
             <li>@Html.ActionLink("Back to List", "Index")<span class="divider">/</span></li>
             <li class="active">Edit</li>
         </ul>
+    </div>
+    <div class="row-fluid">
         <div class="span1">
             <h2>
                 Edit</h2>
@@ -23,10 +25,10 @@
                     <legend><span class="editor-label"><strong>@Html.DisplayFor(model => model.Renter.FullName)</strong>
                     </span></legend>
                     <address>
-                        @Html.DisplayFor(model => model.Renter.Addresses[0].LineOne)<br>
+                        @Html.DisplayFor(model => model.Renter.Addresses[0].LineOne)<br />
                         @Html.DisplayFor(model => model.Renter.Addresses[0].CityTown),
                         @Html.DisplayFor(model => model.Renter.Addresses[0].StateProvince)
-                        @Html.DisplayFor(model => model.Renter.Addresses[0].PostalCode)<br>
+                        @Html.DisplayFor(model => model.Renter.Addresses[0].PostalCode)<br />
                         <abbr title="Phone">
                             P:</abbr>
                         (123) 456-78906.
@@ -39,10 +41,10 @@
                         @Html.LabelFor(model => model.CreateUserID)
                         @Html.DisplayFor(model => model.CreateUserID)
                     </div>
-                    <div style="background-color:Beige; border:1px solid silver; border-radius:8px; padding:20px">
-                     
+                    <div style="background-color: Beige; border: 1px solid silver; border-radius: 8px;
+                        padding: 20px">
                         <ul class="nav nav-tabs">
-                            <li><a href="#units" data-toggle="tab" >Storage Units Rented</a></li>
+                            <li><a href="#units" data-toggle="tab">Storage Units Rented</a></li>
                             <li><a href="#transactions" data-toggle="tab">Account Transations</a></li>
                             <li><a href="#messages" data-toggle="tab">Messages</a></li>
                             <li><a href="#details" data-toggle="tab">Tenant Account Details</a></li>
