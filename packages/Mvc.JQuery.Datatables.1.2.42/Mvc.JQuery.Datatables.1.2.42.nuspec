@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Mvc.JQuery.Datatables</id>
+    <version>1.2.42</version>
+    <title>Mvc.JQuery.Datatables</title>
+    <authors>Harry McIntyre</authors>
+    <owners>Harry McIntyre</owners>
+    <projectUrl>https://github.com/mcintyre321/mvc.jquery.datatables</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Strongly type html helpers for rendering jquery.datatables tables from IQueryables</description>
+    <copyright>Copyright 2011</copyright>
+    <tags>jquery datatables iqueryable razor</tags>
+    <dependencies>
+      <dependency id="WebActivator" version="1.5" />
+    </dependencies>
+    <references>
+      <reference file="Mvc.JQuery.Datatables.dll" />
+    </references>
+  </metadata>
+</package>
