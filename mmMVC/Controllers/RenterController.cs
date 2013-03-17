@@ -97,7 +97,18 @@ namespace mmMVC.Controllers
             {
                 // TODO: Add update logic here
 
-                return RedirectToAction("Index");
+                var myrenter = RenterAccountEdit.GetRenterAccountEdit(id);
+                myrenter.Renter.FirstName = collection["Renter.FirstName"];
+
+                myrenter.Save();
+
+                ViewData.Model = myrenter;
+               
+               
+                return View();
+
+
+              //  return RedirectToAction("Index");
             }
             catch
             {

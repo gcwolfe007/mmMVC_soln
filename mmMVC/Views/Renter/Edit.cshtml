@@ -8,22 +8,49 @@
         <ul class="breadcrumb">
             <li>@Html.ActionLink("Home", "Index", "Home") <span class="divider">/</span></li>
             <li>@Html.ActionLink("Back to List", "Index")<span class="divider">/</span></li>
-            <li class="active">Edit</li>
+            <li class="active">Edit Account</li>
         </ul>
     </div>
     <div class="row-fluid">
-        <div class="span1">
+      @*  <div class="span1">
             <h2>
                 Edit</h2>
-        </div>
+        </div>*@
         <div class="span10">
             @using (Html.BeginForm("Edit", "Renter", FormMethod.Post, new { @class = "form-horizontal" }))
             {
                 @Html.ValidationSummary(true)
 
                 <fieldset>
-                    <legend><span class="editor-label"><strong>@Html.DisplayFor(model => model.Renter.FullName)</strong>
-                    </span></legend>
+                 <!-- Modal -->
+                        <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                    ×</button>
+                                <h3 id="myModalLabel">
+                                    Modal header</h3>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                  @Html.EditorFor(model => model.Renter.FirstName)
+                                    
+                                    </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn" data-dismiss="modal" aria-hidden="true">
+                                    Close</button>
+                                <button class="btn btn-primary">
+                                    Save changes</button>
+                            </div>
+                        </div>
+                    <legend><span class="editor-label"><strong>@Html.DisplayFor(model => model.Renter.FullName)
+                    </strong></span>
+                       <!-- Button to trigger modal -->
+                        <a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
+                       
+                    
+                    </legend>
                     <address>
                         @Html.DisplayFor(model => model.Renter.Addresses[0].LineOne)<br />
                         @Html.DisplayFor(model => model.Renter.Addresses[0].CityTown),
