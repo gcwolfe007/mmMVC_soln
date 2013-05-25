@@ -195,14 +195,22 @@ namespace MM.Library.Entities
                var dal = ctx.GetProvider<MM.DAL.IRenterAccountDAL>();
                using (BypassPropertyChecks)
                {
-                   var item = new MM.DAL.RenterAccountDTO
-                   {
+                   var item = new MM.DAL.RenterAccountDTO                   
+                   {        
                        AccountID = this.RenterAccountID,
-                       AccountNumber = this.AccountNumber,
-                      
-                      
+                       AccountNumber = this.AccountNumber,                      
                        CreateDate = (DateTime)FieldManager.GetFieldData(CreateDateProperty).Value,
                    };
+                   item.Renter = new DAL.RenterDTO
+                   {
+                       FirstName = Renter.FirstName,
+                       LastName = Renter.LastName,
+                       MiddleName = Renter.MiddleName,
+                       RenterID = Renter.RenterID,
+
+                   };
+
+
                    dal.Update(item);
                    FieldManager.GetFieldData(ModifyDateProperty).Value = item.ModifyDate;
                }

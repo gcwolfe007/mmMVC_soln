@@ -19,7 +19,7 @@ namespace mmMVC.Controllers
 
             var user = Csla.ApplicationContext.User;
             
-            ViewData.Model = TenantInfoList.GetProjectList();
+            ViewData.Model = TenantInfoList.GetTenantInfoList();
             return View();
         }
 

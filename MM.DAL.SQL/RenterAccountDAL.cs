@@ -78,7 +78,10 @@ namespace MM.DAL.SQL
 
         public void Update(mmDTObase item)
         {
-            throw new NotImplementedException();
+
+            var myItem = item;
+            
+          //  throw new NotImplementedException();
         }
 
         public void Delete(int id)

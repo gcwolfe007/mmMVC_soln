@@ -38,7 +38,7 @@ namespace MM.Library.Collections
             DataPortal.BeginCreate<TenantInfoList>(name, callback);
         }
 #if !SILVERLIGHT
-        public static TenantInfoList GetProjectList()
+        public static TenantInfoList GetTenantInfoList()
         {
             return DataPortal.Fetch<TenantInfoList>();
         }
